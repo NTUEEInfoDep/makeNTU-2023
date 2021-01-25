@@ -1,3 +1,12 @@
 .header {
     @apply flex justify-between mx-auto py-4 px-4;
+    padding-bottom: 0.5rem;
+    margin-left: 0.5rem;
+    margin-right: 0.8rem;
+    width: 100%;
+}
+
+.header__title {
+    font-family: "Geostar";
+    font-size: 2rem;
 }

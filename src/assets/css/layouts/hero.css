@@ -1,5 +1,25 @@
+.hero {
+    flex-direction: row-reverse;
+}
+.hero__bg {
+    background-image: url("../images/makeNTU2021.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.hero__transbox {
+    background-color: #555555;
+    opacity: 0.8;
+}
+
+.hero__tagline-content-wrap {
+    margin: 30px;
+}
+
 .hero__tagline {
     @apply flex items-center w-full text-center;
+    color: white;
 }
 
 .hero__tagline-title {
