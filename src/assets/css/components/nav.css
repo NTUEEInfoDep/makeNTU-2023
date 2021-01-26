@@ -4,7 +4,8 @@
 
 .nav__menu {
     @apply hidden;
-
+    font-size: 1.5rem; 
+    
     li {
         @apply p-2 text-2xl uppercase;
 
@@ -23,19 +24,19 @@
     height: 30px;
     width: 35px;
     @apply relative;
-    
+
     &:focus {
         outline: none;
     }
-    
+
     span {
         border-radius: 2px;
         height: 5px;
-        transition: all .2s ease-in;
+        transition: all 0.2s ease-in;
         width: 35px;
         @apply bg-tertiary block absolute;
     }
-    
+
     span:first-child {
         top: 0;
         transform-origin: left top;
@@ -71,19 +72,19 @@
 @screen sm {
     .nav__menu {
         @apply flex flex-row items-center static;
-    
+
         li {
             @apply mx-4 relative text-base;
 
             &::after {
                 bottom: 2px;
-                content: '';
+                content: "";
                 height: 4px;
                 opacity: 0;
-                transition: all .3s ease-in;
+                transition: all 0.3s ease-in;
                 width: 0;
             }
-            
+
             &:hover::after {
                 opacity: 1;
                 width: calc(100% - 1rem);
