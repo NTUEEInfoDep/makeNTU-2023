@@ -1,0 +1,15 @@
+.heroImage-container {
+    padding-top: 0;
+    padding-bottom: 1rem;
+}
+.heroImage {
+    height: 61.8vh;
+    max-height: 400px;
+    width: 100%;
+}
+.post {
+    display: flex;
+    flex-direction: column;
+    padding-top: 0;
+    padding-bottom: 1rem;
+}

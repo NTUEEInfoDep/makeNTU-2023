@@ -1,0 +1,12 @@
+.posts {
+    justify-content: center;
+}
+.post-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 350px));
+    grid-gap: 5vmin;
+}
