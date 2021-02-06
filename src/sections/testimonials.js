@@ -62,13 +62,22 @@ const Testimonials = ({ contentModuleId }) => {
   // console.log(content);
   // console.log(content[0].node.scoring.internal.content);
   const initSlider = () => {
-    new Glider(document.querySelector(".glider"), {
+    new Glider(document.querySelector(".glider1"), {
       slidesToShow: 1,
-      dots: ".glider__dots",
+      dots: ".glider1__dots",
       draggable: true,
       arrows: {
-        prev: ".glider-prev",
-        next: ".glider-next",
+        prev: ".glider1-prev",
+        next: ".glider1-next",
+      },
+    });
+    new Glider(document.querySelector(".glider2"), {
+      slidesToShow: 1,
+      dots: ".glider2__dots",
+      draggable: true,
+      arrows: {
+        prev: ".glider2-prev",
+        next: ".glider2-next",
       },
     });
   };
@@ -108,7 +117,7 @@ const Testimonials = ({ contentModuleId }) => {
               data-sal="fade"
               data-sal-easing="ease-in-cubic"
             >
-              <div className="glider">
+              <div className="glider1">
                 {content.map((testimonial) => (
                   <Testimonial
                     testimonial={testimonial.node}
@@ -116,13 +125,13 @@ const Testimonials = ({ contentModuleId }) => {
                   />
                 ))}
               </div>
-              <button className="glider-prev material-icons">
+              <button className="glider1-prev material-icons">
                 keyboard_arrow_left
               </button>
-              <button className="glider-next material-icons">
+              <button className="glider1-next material-icons">
                 keyboard_arrow_right
               </button>
-              <div className="glider__dots"></div>
+              <div className="glider1__dots"></div>
             </div>
           )}
         </div>
@@ -146,7 +155,7 @@ const Testimonials = ({ contentModuleId }) => {
               data-sal="fade"
               data-sal-easing="ease-in-cubic"
             >
-              <div className="glider">
+              <div className="glider2">
                 {content.map((testimonial) => (
                   <Testimonial
                     testimonial={testimonial.node}
@@ -154,13 +163,13 @@ const Testimonials = ({ contentModuleId }) => {
                   />
                 ))}
               </div>
-              <button className="glider-prev material-icons">
+              <button className="glider2-prev material-icons">
                 keyboard_arrow_left
               </button>
-              <button className="glider-next material-icons">
+              <button className="glider2-next material-icons">
                 keyboard_arrow_right
               </button>
-              <div className="glider__dots"></div>
+              <div className="glider2__dots"></div>
             </div>
           )}
         </div>
