@@ -4,6 +4,7 @@ exports.createPages = ({ graphql, actions }) => {
     const { createPage } = actions;
     const layoutTemplate = path.resolve(`src/templates/pageTemplate.js`);
     const postTemplate = path.resolve(`src/templates/postTemplate.js`);
+    const postListTemplate = path.resolve(`src/templates/postListTemplate.js`);
     return graphql(`
         query {
             allContentfulLayout {
@@ -30,7 +31,7 @@ exports.createPages = ({ graphql, actions }) => {
             if (edge.node.slug === "404") {
                 // for 404 page we use custom page at src/pages/404.js
                 return;
-            } else {
+            } else if (edge.node.slug === "/") {
                 createPage({
                     path: edge.node.slug,
                     component: layoutTemplate,
@@ -38,8 +39,26 @@ exports.createPages = ({ graphql, actions }) => {
                         slug: edge.node.slug,
                     },
                 });
+            } else if (edge.node.slug === "post") {
+                const posts = result.data.allContentfulPost.edges;
+                const postsPerPage = 10;
+                const numPages = Math.ceil(posts.length / postsPerPage);
+                Array.from({ length: numPages }).forEach((_, i) => {
+                    createPage({
+                        path: i === 0 ? edge.node.slug : `${edge.node.slug}/${i + 1}`,
+                        component: postListTemplate,
+                        context: {
+                            slug: "post",
+                            limit: postsPerPage,
+                            skip: i * postsPerPage,
+                            numPages,
+                            currentPage: i + 1,
+                        },
+                    });
+                });
             }
         });
+
         result.data.allContentfulPost.edges.forEach((edge) => {
             createPage({
                 path: `/post/${edge.node.slug}`,

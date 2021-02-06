@@ -7,6 +7,46 @@
     list-style: none;
     display: grid;
     justify-content: center;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 350px));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
+    grid-template-rows: repeat(auto-fit, minmax(200px, 300px));
     grid-gap: 5vmin;
+}
+
+.post-btn {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border: none;
+    background-color: #5654ce;
+    color: #ffffff;
+    text-align: center;
+    font-size: 21px;
+    transition: all 0.4s;
+    cursor: pointer;
+    height: fit-content;
+    padding: 18px;
+}
+
+.post-btn span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.4s;
+}
+
+.post-btn span:after {
+    content: "\00bb";
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.post-btn:hover span {
+    padding-right: 25px;
+}
+
+.post-btn:hover span:after {
+    opacity: 1;
+    right: 0;
 }

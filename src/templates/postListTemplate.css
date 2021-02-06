@@ -1,0 +1,12 @@
+.index {
+    padding: 8px 16px;
+}
+.index:hover:not(.active) {
+    background-color: #ddd;
+    border-radius: 5px;
+}
+.index-active {
+    background-color: #5654ce;
+    color: white;
+    border-radius: 5px;
+}
