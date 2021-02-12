@@ -17,10 +17,18 @@
 .testimonial__image {
   height: 200px;
   left: 50%;
-  top: -50px;
+  top: 30px;
   transform: translateX(-50%);
   width: 200px;
   @apply absolute rounded-full shadow;
+}
+
+.testimonial__image2 {
+  object-fit: contain;
+  left: 50%;
+  top: 50px;
+  transform: translateX(-50%);
+  @apply absolute;
 }
 
 .testimonial__name {
@@ -37,6 +45,7 @@
   @apply relative;
   display: inline-grid;
   align-items: center;
+  padding-bottom: 20px;
 }
 
 .testimonial__table tr {

@@ -4,6 +4,7 @@ import { useStaticQuery, graphql } from "gatsby";
 
 import Glider from "glider-js";
 import Testimonial from "components/testimonial";
+import Testimonial2 from "components/testimonial2";
 
 const Testimonials = ({ contentModuleId }) => {
   const data = useStaticQuery(graphql`
@@ -23,6 +24,34 @@ const Testimonials = ({ contentModuleId }) => {
               }
             }
             description
+          }
+        }
+      }
+      allContentfulCompanyPrizes {
+        edges {
+          node {
+            description {
+              content {
+                content {
+                  value
+                }
+              }
+            }
+            link
+            name
+            scoring {
+              scoring {
+                name
+                percentage
+              }
+            }
+            title
+            image {
+              fluid(quality: 100) {
+                src
+                aspectRatio
+              }
+            }
           }
         }
       }
@@ -59,7 +88,9 @@ const Testimonials = ({ contentModuleId }) => {
   //     (edge) => edge.node.id === contentModuleId
   //   );
   const content = data.allContentfulPrizes.edges;
+  const content2 = data.allContentfulCompanyPrizes.edges;
   // console.log(content);
+  // console.log(content2);
   // console.log(content[0].node.scoring.internal.content);
   const initSlider = () => {
     new Glider(document.querySelector(".glider1"), {
@@ -109,7 +140,6 @@ const Testimonials = ({ contentModuleId }) => {
         >
           大會獎
         </h1>
-        <p>maybe put some images here...</p>
         <div className="w-full pt-12 md:pt-0">
           {content.length > 0 && (
             <div
@@ -125,13 +155,35 @@ const Testimonials = ({ contentModuleId }) => {
                   />
                 ))}
               </div>
-              <button className="glider1-prev material-icons">
-                keyboard_arrow_left
-              </button>
-              <button className="glider1-next material-icons">
-                keyboard_arrow_right
-              </button>
-              <div className="glider1__dots"></div>
+              <div
+                style={{
+                  width: "80%",
+                  transform: "translateX(12%)",
+                }}
+              >
+                <button
+                  className="glider1-prev material-icons"
+                  style={{
+                    position: "absolute",
+                    left: "0px",
+                  }}
+                >
+                  keyboard_arrow_left
+                </button>
+                <button
+                  className="glider1-next material-icons"
+                  style={{
+                    position: "absolute",
+                    right: "0px",
+                  }}
+                >
+                  keyboard_arrow_right
+                </button>
+              </div>
+              <div
+                className="glider1__dots"
+                style={{ marginBottom: "15px" }}
+              ></div>
             </div>
           )}
         </div>
@@ -147,29 +199,51 @@ const Testimonials = ({ contentModuleId }) => {
         >
           企業獎
         </h1>
-        <p>maybe put some images here...</p>
+
         <div className="w-full pt-12 md:pt-0">
-          {content.length > 0 && (
+          {content2.length > 0 && (
             <div
               className="testimonial__slider"
               data-sal="fade"
               data-sal-easing="ease-in-cubic"
             >
               <div className="glider2">
-                {content.map((testimonial) => (
-                  <Testimonial
+                {content2.map((testimonial) => (
+                  <Testimonial2
                     testimonial={testimonial.node}
                     key={testimonial.node.id}
                   />
                 ))}
               </div>
-              <button className="glider2-prev material-icons">
-                keyboard_arrow_left
-              </button>
-              <button className="glider2-next material-icons">
-                keyboard_arrow_right
-              </button>
-              <div className="glider2__dots"></div>
+              <div
+                style={{
+                  width: "80%",
+                  transform: "translateX(12%)",
+                }}
+              >
+                <button
+                  className="glider2-prev material-icons"
+                  style={{
+                    position: "absolute",
+                    left: "0px",
+                  }}
+                >
+                  keyboard_arrow_left
+                </button>
+                <button
+                  className="glider2-next material-icons"
+                  style={{
+                    position: "absolute",
+                    right: "0px",
+                  }}
+                >
+                  keyboard_arrow_right
+                </button>
+              </div>
+              <div
+                className="glider2__dots"
+                style={{ marginBottom: "15px" }}
+              ></div>
             </div>
           )}
         </div>

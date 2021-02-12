@@ -12,7 +12,7 @@ const Testimonial = ({ testimonial }) => (
       />
       <strong
         className="testimonial__name"
-        style={{ paddingTop: "100px", fontSize: "200%", paddingBottom: "10px" }}
+        style={{ paddingTop: "200px", fontSize: "200%", paddingBottom: "10px" }}
       >
         {testimonial.title}
       </strong>
