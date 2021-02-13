@@ -133,9 +133,10 @@ const Testimonials = ({ contentModuleId }) => {
         style={{ marginRight: "10px" }}
       >
         <h1
-          className="w-full md:w-3/4 font-bold text-5xl leading-none mb-6"
+          className="w-full font-bold text-5xl leading-none"
           data-sal="fade"
           data-sal-easing="ease-in-cubic"
+          style={{ textAlign: "center" }}
         >
           大會獎
         </h1>
@@ -179,7 +180,10 @@ const Testimonials = ({ contentModuleId }) => {
                   keyboard_arrow_right
                 </button>
               </div>
-              <div className="glider1__dots"></div>
+              <div
+                className="glider1__dots"
+                style={{ marginBottom: "15px" }}
+              ></div>
             </div>
           )}
         </div>
@@ -189,9 +193,10 @@ const Testimonials = ({ contentModuleId }) => {
         style={{ marginLeft: "10px" }}
       >
         <h1
-          className="w-full md:w-3/4 font-bold text-5xl leading-none mb-6"
+          className="w-full font-bold text-5xl leading-none"
           data-sal="fade"
           data-sal-easing="ease-in-cubic"
+          style={{ textAlign: "center" }}
         >
           企業獎
         </h1>

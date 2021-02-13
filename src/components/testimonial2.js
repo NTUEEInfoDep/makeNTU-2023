@@ -6,7 +6,7 @@ function WidthCalculator(ratio) {
 }
 
 const Testimonial2 = ({ testimonial }) => (
-  <div className="testimonial">
+  <div className="testimonial" style={{ paddingTop: "15px" }}>
     <div className="testimonial__content">
       <Img
         fluid={testimonial.image.fluid}
@@ -20,7 +20,7 @@ const Testimonial2 = ({ testimonial }) => (
 
       <strong
         className="testimonial__name"
-        style={{ paddingTop: "125px", fontSize: "200%", paddingBottom: "10px" }}
+        style={{ paddingTop: "100px", fontSize: "200%", paddingBottom: "10px" }}
       >
         {testimonial.title}
       </strong>

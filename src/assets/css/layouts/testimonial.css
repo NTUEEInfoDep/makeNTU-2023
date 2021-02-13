@@ -26,7 +26,7 @@
 .testimonial__image2 {
   object-fit: contain;
   left: 50%;
-  top: 50px;
+  top: 30px;
   transform: translateX(-50%);
   @apply absolute;
 }

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Img from "gatsby-image";
 
 const Testimonial = ({ testimonial }) => (
-  <div className="testimonial">
+  <div className="testimonial" style={{ paddingTop: "15px" }}>
     <div className="testimonial__content">
       <Img
         fluid={testimonial.image.fluid}
