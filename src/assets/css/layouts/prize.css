@@ -1,20 +1,20 @@
-.testimonials {
+.prizes {
   @apply pt-24 pb-0;
 }
 
-.testimonial__slider {
+.prize__slider {
   @apply relative;
 }
 
-.testimonial__content {
+.prize__content {
   @apply relative text-center px-8 pt-8 pb-16 border border-lightGray rounded shadow-lg;
 }
 
-.testimonial {
+.prize {
   padding: 50px 25px 25px;
 }
 
-.testimonial__image {
+.prize__image {
   height: 200px;
   left: 50%;
   top: 30px;
@@ -23,7 +23,7 @@
   @apply absolute rounded-full shadow;
 }
 
-.testimonial__image2 {
+.prize__image2 {
   object-fit: contain;
   left: 50%;
   top: 30px;
@@ -31,23 +31,23 @@
   @apply absolute;
 }
 
-.testimonial__name {
+.prize__name {
   @apply block text-xl font-bold leading-none mt-8;
 }
 
 @screen md {
-  .testimonials {
+  .prizes {
     @apply pb-24;
   }
 }
 
-.testimonial__table {
+.prize__table {
   @apply relative;
   display: inline-grid;
   align-items: center;
   padding-bottom: 20px;
 }
 
-.testimonial__table tr {
+.prize__table tr {
   font-size: 150%;
 }

@@ -5,28 +5,28 @@ function WidthCalculator(ratio) {
   return Math.floor(100 * ratio).toString() + "px";
 }
 
-const Testimonial2 = ({ testimonial }) => (
-  <div className="testimonial" style={{ paddingTop: "15px" }}>
-    <div className="testimonial__content">
+const CompanyPrize = ({ prize }) => (
+  <div className="prize" style={{ paddingTop: "15px" }}>
+    <div className="prize__content">
       <Img
-        fluid={testimonial.image.fluid}
-        className="testimonial__image2"
+        fluid={prize.image.fluid}
+        className="prize__image2"
         style={{
           position: "absolute",
           height: "100px",
-          width: WidthCalculator(testimonial.image.fluid.aspectRatio),
+          width: WidthCalculator(prize.image.fluid.aspectRatio),
         }}
       />
 
       <strong
-        className="testimonial__name"
+        className="prize__name"
         style={{ paddingTop: "100px", fontSize: "200%", paddingBottom: "10px" }}
       >
-        {testimonial.title}
+        {prize.title}
       </strong>
-      {testimonial.description.content.map((item) => (
+      {prize.description.content.map((item) => (
         <p
-          className="testimonial__company text-secondary mb-4"
+          className="prize__company text-secondary mb-4"
           style={{
             paddingBottom: "10px",
             paddingTop: "10px",
@@ -38,9 +38,9 @@ const Testimonial2 = ({ testimonial }) => (
       ))}
 
       <div>
-        <table className="testimonial__table">
+        <table className="prize__table">
           <tbody>
-            {testimonial.scoring.scoring.map((item) => (
+            {prize.scoring.scoring.map((item) => (
               <tr>
                 <th>{item.name}:&nbsp;&nbsp;</th>
                 <th>{item.percentage}</th>
@@ -49,15 +49,15 @@ const Testimonial2 = ({ testimonial }) => (
           </tbody>
         </table>
       </div>
-      <a href={testimonial.link}>
+      <a href={prize.link}>
         <button className="btn btn--primary mt-4 mb-0">More...</button>
       </a>
     </div>
   </div>
 );
 //<i className="testimonial__comment text-sm">{testimonial.description}</i>
-Testimonial2.propTypes = {
-  testimonial: PropTypes.object.isRequired,
+CompanyPrize.propTypes = {
+  prize: PropTypes.object.isRequired,
 };
 
-export default Testimonial2;
+export default CompanyPrize;

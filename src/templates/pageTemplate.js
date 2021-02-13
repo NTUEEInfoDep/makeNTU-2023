@@ -4,7 +4,7 @@ import SEO from "../components/seo";
 import { graphql } from "gatsby";
 
 import Section from "sections/section";
-import Testimonials from "../sections/testimonials";
+import Prizes from "../sections/prizes";
 
 export const query = graphql`
   query($slug: String!) {
@@ -50,7 +50,7 @@ export default function PageTemplate({ data }) {
             key={content.id}
           />
         ))}
-      <Testimonials contentModuleId="testimonial" />
+      <Prizes contentModuleId="prize" />
     </Layout>
   );
 }

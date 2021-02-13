@@ -3,10 +3,10 @@ import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
 
 import Glider from "glider-js";
-import Testimonial from "components/testimonial";
-import Testimonial2 from "components/testimonial2";
+import Prize from "components/prize";
+import CompanyPrize from "components/companyprize";
 
-const Testimonials = ({ contentModuleId }) => {
+const Prizes = ({ contentModuleId }) => {
   const data = useStaticQuery(graphql`
     query {
       allContentfulPrizes {
@@ -19,8 +19,9 @@ const Testimonials = ({ contentModuleId }) => {
             }
             title
             scoring {
-              internal {
-                content
+              scoring {
+                name
+                percentage
               }
             }
             description
@@ -124,10 +125,7 @@ const Testimonials = ({ contentModuleId }) => {
   });
 
   return (
-    <section
-      id="testimonials"
-      className="testimonials container section mx-auto"
-    >
+    <section id="prizes" className="prizes container section mx-auto">
       <div
         className="w-full md:w-1/2 pl-0 md:pl-16 text-center md:text-left"
         style={{ marginRight: "10px" }}
@@ -143,16 +141,13 @@ const Testimonials = ({ contentModuleId }) => {
         <div className="w-full pt-12 md:pt-0">
           {content.length > 0 && (
             <div
-              className="testimonial__slider"
+              className="prize__slider"
               data-sal="fade"
               data-sal-easing="ease-in-cubic"
             >
               <div className="glider1">
-                {content.map((testimonial) => (
-                  <Testimonial
-                    testimonial={testimonial.node}
-                    key={testimonial.node.id}
-                  />
+                {content.map((prize) => (
+                  <Prize prize={prize.node} key={prize.node.id} />
                 ))}
               </div>
               <div
@@ -203,16 +198,13 @@ const Testimonials = ({ contentModuleId }) => {
         <div className="w-full pt-12 md:pt-0">
           {content2.length > 0 && (
             <div
-              className="testimonial__slider"
+              className="prize__slider"
               data-sal="fade"
               data-sal-easing="ease-in-cubic"
             >
               <div className="glider2">
-                {content2.map((testimonial) => (
-                  <Testimonial2
-                    testimonial={testimonial.node}
-                    key={testimonial.node.id}
-                  />
+                {content2.map((prize) => (
+                  <CompanyPrize prize={prize.node} key={prize.node.id} />
                 ))}
               </div>
               <div
@@ -252,8 +244,8 @@ const Testimonials = ({ contentModuleId }) => {
   );
 };
 
-Testimonials.propTypes = {
+Prizes.propTypes = {
   contentModuleId: PropTypes.string.isRequired,
 };
 
-export default Testimonials;
+export default Prizes;
