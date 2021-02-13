@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Img from "gatsby-image";
 
 const Prize = ({ prize }) => (
-  <div className="prize" style={{ paddingTop: "15px" }}>
+  <div className="prize" style={{ paddingTop: "15px", marginTop: "0px" }}>
     <div className="prize__content">
       <Img
         fluid={prize.image.fluid}
@@ -12,7 +12,11 @@ const Prize = ({ prize }) => (
       />
       <strong
         className="prize__name"
-        style={{ paddingTop: "200px", fontSize: "200%", paddingBottom: "10px" }}
+        style={{
+          paddingTop: "200px",
+          fontSize: "200%",
+          paddingBottom: "10px",
+        }}
       >
         {prize.title}
       </strong>

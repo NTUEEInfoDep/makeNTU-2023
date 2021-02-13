@@ -58,36 +58,6 @@ const Prizes = ({ contentModuleId }) => {
       }
     }
   `);
-  // query {
-  //     allContentfulLayoutTestimonials {
-  //         edges {
-  //             node {
-  //                 id
-  //                 heading
-  //                 description {
-  //                     description
-  //                 }
-  //                 testimonials {
-  //                     id
-  //                     name
-  //                     company
-  //                     comment {
-  //                         comment
-  //                     }
-  //                     image{
-  //                         fluid (quality: 100) {
-  //                             ...GatsbyContentfulFluid
-  //                         }
-  //                     }
-  //                 }
-  //             }
-  //         }
-  //     }
-  // }
-
-  //   const content = data.allContentfulLayoutTestimonials.edges.find(
-  //     (edge) => edge.node.id === contentModuleId
-  //   );
   const content = data.allContentfulPrizes.edges;
   const content2 = data.allContentfulCompanyPrizes.edges;
   // console.log(content);
@@ -113,13 +83,6 @@ const Prizes = ({ contentModuleId }) => {
     });
   };
 
-  // <p
-  //   className="w-full md:w-3/4"
-  //   data-sal="fade"
-  //   data-sal-easing="ease-in-cubic"
-  // >
-  //   {content[0].node.description}
-  // </p>
   useEffect(() => {
     initSlider();
   });
@@ -127,7 +90,7 @@ const Prizes = ({ contentModuleId }) => {
   return (
     <section id="prizes" className="prizes container section mx-auto">
       <div
-        className="w-full md:w-1/2 pl-0 md:pl-16 text-center md:text-left"
+        className="w-full md:w-1/2 pl-0 text-center md:text-left"
         style={{ marginRight: "10px" }}
       >
         <h1
@@ -138,7 +101,7 @@ const Prizes = ({ contentModuleId }) => {
         >
           大會獎
         </h1>
-        <div className="w-full pt-12 md:pt-0">
+        <div className="w-full md:pt-0">
           {content.length > 0 && (
             <div
               className="prize__slider"
@@ -177,16 +140,13 @@ const Prizes = ({ contentModuleId }) => {
               </div>
               <div
                 className="glider1__dots"
-                style={{ marginBottom: "15px" }}
+                style={{ marginBottom: "30px" }}
               ></div>
             </div>
           )}
         </div>
       </div>
-      <div
-        className="w-full md:w-1/2 pl-0 md:pl-16 text-center md:text-left"
-        style={{ marginLeft: "10px" }}
-      >
+      <div className="w-full md:w-1/2 pl-0 text-center md:text-left">
         <h1
           className="w-full font-bold text-5xl leading-none"
           data-sal="fade"
@@ -195,7 +155,7 @@ const Prizes = ({ contentModuleId }) => {
         >
           企業獎
         </h1>
-        <div className="w-full pt-12 md:pt-0">
+        <div className="w-full md:pt-0">
           {content2.length > 0 && (
             <div
               className="prize__slider"

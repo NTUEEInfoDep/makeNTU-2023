@@ -20,7 +20,13 @@ const CompanyPrize = ({ prize }) => (
 
       <strong
         className="prize__name"
-        style={{ paddingTop: "100px", fontSize: "200%", paddingBottom: "10px" }}
+        style={{
+          paddingTop: "100px",
+          fontSize: "200%",
+          paddingBottom: "25px",
+          marginLeft: "10%",
+          marginRight: "10%",
+        }}
       >
         {prize.title}
       </strong>
@@ -28,9 +34,9 @@ const CompanyPrize = ({ prize }) => (
         <p
           className="prize__company text-secondary mb-4"
           style={{
-            paddingBottom: "10px",
-            paddingTop: "10px",
             fontSize: "120%",
+            marginRight: "10%",
+            marginLeft: "10%",
           }}
         >
           {item.content[0].value}
