@@ -90,7 +90,6 @@ const Testimonials = ({ contentModuleId }) => {
   const content = data.allContentfulPrizes.edges;
   const content2 = data.allContentfulCompanyPrizes.edges;
   // console.log(content);
-  // console.log(content2);
   // console.log(content[0].node.scoring.internal.content);
   const initSlider = () => {
     new Glider(document.querySelector(".glider1"), {
@@ -180,10 +179,7 @@ const Testimonials = ({ contentModuleId }) => {
                   keyboard_arrow_right
                 </button>
               </div>
-              <div
-                className="glider1__dots"
-                style={{ marginBottom: "15px" }}
-              ></div>
+              <div className="glider1__dots"></div>
             </div>
           )}
         </div>
@@ -199,7 +195,6 @@ const Testimonials = ({ contentModuleId }) => {
         >
           企業獎
         </h1>
-
         <div className="w-full pt-12 md:pt-0">
           {content2.length > 0 && (
             <div
