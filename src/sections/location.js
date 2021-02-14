@@ -31,7 +31,7 @@ const Location = ({ contentModuleId }) => {
   );
 
   return (
-    <section id="location" className="section bg-lightGray mx-auto">
+    <section id="location" className="section mx-auto">
       <div className="container mx-auto">
         <div className="mx-auto">
           <h2

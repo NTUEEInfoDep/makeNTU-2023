@@ -43,7 +43,7 @@ const Sponsors = ({ contentModuleId }) => {
   );
   console.log(content.node.image_sponsors);
   return (
-    <section id="ocs" className="section mx-auto">
+    <section id="sponsors" className="section bg-gray mx-auto">
       <div className="container mx-auto">
         <div className="mx-auto">
           <h2
@@ -82,7 +82,7 @@ const Sponsors = ({ contentModuleId }) => {
           <SponsorTable feature={content.node.imageCoOrganizers} />
         </div>
         <br />
-        <div id="sponsors" className="mx-auto">
+        <div className="mx-auto">
           <h2
             className="section__title text-center mb-16"
             data-sal="fade"
