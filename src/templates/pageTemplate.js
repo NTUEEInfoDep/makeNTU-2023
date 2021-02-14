@@ -5,9 +5,6 @@ import { graphql } from "gatsby";
 
 import Section from "sections/section";
 
-// import HyChouTimeline from "sections/timeline";
-import Prizes from "../sections/prizes";
-
 export const query = graphql`
   query($slug: String!) {
     contentfulLayout(slug: { eq: $slug }) {

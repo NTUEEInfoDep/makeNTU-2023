@@ -34,15 +34,29 @@ const Location = ({ contentModuleId }) => {
     <section id="location" className="section bg-lightGray mx-auto">
       <div className="container mx-auto">
         <div className="mx-auto">
-          <h2 className="text-center section__title mb-16">
+          <h2
+            className="text-center section__title mb-16"
+            data-sal="fade"
+            data-sal-easing="ease-in-cubic"
+          >
             {content.node.heading}
           </h2>
-          <h3 className="mx-auto text-center location__description">
+          <h3
+            className="mx-auto text-center location__description"
+            data-sal="fade"
+            data-sal-delay="100"
+            data-sal-easing="ease-in-cubic"
+          >
             {content.node.description}
           </h3>
         </div>
         <div>
-          <div className="iframe-rwd mx-auto">
+          <div
+            className="iframe-rwd mx-auto"
+            data-sal="fade"
+            data-sal-delay="200"
+            data-sal-easing="ease-in-cubic"
+          >
             <Map feature={content.node.location} />
           </div>
         </div>
