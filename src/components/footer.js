@@ -30,13 +30,13 @@ const Footer = ({ menus }) => {
     <footer className="footer bg-tertiary text-white">
       <div className="container section mx-auto py-10">
         <div className="footer__content">
-          <h3 className="text-lg font-bold mb-4">
+          <h3 className="text-lg font-bold mb-4 text-lightGray">
             {data.contentfulContactDetails.contactInfo}
           </h3>
           <ul className="text-sm">
             <li className="mb-2">
               <div className="item">
-                <i className="item__icon material-icons text-white text-2xl">
+                <i className="item__icon material-icons text-lightGray text-2xl">
                   business
                 </i>
                 <div className="item__content">
@@ -50,7 +50,7 @@ const Footer = ({ menus }) => {
             </li>
             <li className="mb-2">
               <div className="item">
-                <i className="item__icon material-icons text-white text-2xl">
+                <i className="item__icon material-icons text-lightGray text-2xl">
                   settings_phone
                 </i>
                 <div className="item__content">
@@ -62,7 +62,7 @@ const Footer = ({ menus }) => {
             </li>
             <li className="mb-2">
               <div className="item">
-                <i className="item__icon material-icons text-white text-2xl">
+                <i className="item__icon material-icons text-lightGray text-2xl">
                   email
                 </i>
                 <div className="item__content">
@@ -76,7 +76,7 @@ const Footer = ({ menus }) => {
         </div>
         {footerMenu !== null && footerMenu !== undefined && (
           <div className="footer__content">
-            <h3 className="text-lg font-bold mb-4">
+            <h3 className="text-lg font-bold mb-4 text-lightGray">
               {data.contentfulContactDetails.menuLinks}
             </h3>
             <ul className="text-sm">
@@ -91,7 +91,7 @@ const Footer = ({ menus }) => {
           </div>
         )}
         <div className="footer__content">
-          <h3 className="text-lg font-bold mb-4">
+          <h3 className="text-lg font-bold mb-4 text-lightGray">
             {data.contentfulContactDetails.followUs}
           </h3>
           <ul className="flex text-sm">

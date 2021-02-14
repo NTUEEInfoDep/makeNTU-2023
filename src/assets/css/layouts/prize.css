@@ -7,7 +7,7 @@
 }
 
 .prize__content {
-  @apply relative text-center px-8 pt-8 pb-16 border border-lightGray rounded shadow-lg;
+  @apply relative text-center px-8 pt-8 pb-16 border border-gray rounded shadow-lg;
 }
 
 .prize {

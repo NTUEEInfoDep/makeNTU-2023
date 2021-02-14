@@ -19,10 +19,10 @@ module.exports = {
       colors: {
         primary: "#0081A8",
         secondary: "#CC0049",
-        tertiary: "#333333",
+        tertiary: "#222222",
         error: "#FF6363",
         white: "#FFFFFF",
-        lightGray: "#F9F9F9",
+        lightGray: "#20A1C8",
         gray: "#F3F3F3",
         transparent: "transparent",
       },
