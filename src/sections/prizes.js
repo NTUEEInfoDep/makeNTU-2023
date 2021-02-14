@@ -93,14 +93,14 @@ const Prizes = ({ contentModuleId }) => {
         className="w-full md:w-1/2 pl-0 text-center md:text-left"
         style={{ marginRight: "10px" }}
       >
-        <h1
-          className="w-full font-bold text-5xl leading-none"
+        <h2
+          className="w-full font-bold leading-none section__title mb-16"
           data-sal="fade"
           data-sal-easing="ease-in-cubic"
           style={{ textAlign: "center" }}
         >
           大會獎
-        </h1>
+        </h2>
         <div className="w-full md:pt-0">
           {content.length > 0 && (
             <div
@@ -147,14 +147,14 @@ const Prizes = ({ contentModuleId }) => {
         </div>
       </div>
       <div className="w-full md:w-1/2 pl-0 text-center md:text-left">
-        <h1
-          className="w-full font-bold text-5xl leading-none"
+        <h2
+          className="w-full font-bold leading-none section__title mb-16"
           data-sal="fade"
           data-sal-easing="ease-in-cubic"
           style={{ textAlign: "center" }}
         >
           企業獎
-        </h1>
+        </h2>
         <div className="w-full md:pt-0">
           {content2.length > 0 && (
             <div
