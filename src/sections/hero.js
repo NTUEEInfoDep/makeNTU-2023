@@ -38,9 +38,11 @@ const Hero = ({ contentModuleId }) => {
           <div className="hero__transbox">
             <div className="hero__tagline-content-wrap">
               <h2 className="hero__tagline-title" data-sal="fade">
-                MakeNTU: Cabin f<span style={{ color: "#e95c49" }}>E</span>
+                <span className="hero__tagline-pretitle">2021 MakeNTU</span>
+                <br />
+                Cabin f<span className="text-primary">E</span>
                 <span>V</span>
-                <span style={{ color: "#e95c49" }}>E</span>r
+                <span className="text-primary">E</span>r
               </h2>
               {content.node.subheading.split(" ").map((line) => {
                 return (

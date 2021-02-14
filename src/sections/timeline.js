@@ -168,7 +168,7 @@ export default ({ contentModuleId }) => {
     return (
       <Grid item>
         <Paper elevation={3} className={classes.paper}>
-          <Box py={2}>
+          <Box py={5}>
             <Typography variant="h5" color="primary">
               <Box mb={3} textAlign="center">
                 {props.title}
