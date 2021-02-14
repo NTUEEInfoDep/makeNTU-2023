@@ -113,12 +113,7 @@ const Prizes = ({ contentModuleId }) => {
                   <Prize prize={prize.node} key={prize.node.id} />
                 ))}
               </div>
-              <div
-                style={{
-                  width: "80%",
-                  transform: "translateX(12%)",
-                }}
-              >
+              <div style={{ width: "80%", transform: "translateX(12%)" }}>
                 <button
                   className="glider1-prev material-icons"
                   style={{
@@ -130,10 +125,7 @@ const Prizes = ({ contentModuleId }) => {
                 </button>
                 <button
                   className="glider1-next material-icons"
-                  style={{
-                    position: "absolute",
-                    right: "0px",
-                  }}
+                  style={{ position: "absolute", right: "0px" }}
                 >
                   keyboard_arrow_right
                 </button>

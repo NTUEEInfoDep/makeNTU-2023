@@ -14,7 +14,7 @@ const Prize = ({ prize }) => (
         className="prize__name"
         style={{
           paddingTop: "200px",
-          fontSize: "200%",
+          fontSize: "150%",
           paddingBottom: "10px",
         }}
       >
@@ -22,7 +22,7 @@ const Prize = ({ prize }) => (
       </strong>
       <p
         className="prize__company text-secondary mb-4"
-        style={{ paddingBottom: "10px", paddingTop: "10px", fontSize: "120%" }}
+        style={{ paddingBottom: "10px", paddingTop: "10px", fontSize: "100%" }}
       >
         {prize.description}
       </p>
@@ -32,8 +32,8 @@ const Prize = ({ prize }) => (
           <tbody>
             {prize.scoring.scoring.map((item) => (
               <tr>
-                <th>{item.name}:&nbsp;&nbsp;</th>
-                <th>{item.percentage}</th>
+                <th style={{ textAlign: "right" }}>{item.name}:&nbsp;&nbsp;</th>
+                <th style={{ textAlign: "left" }}>{item.percentage}</th>
               </tr>
             ))}
           </tbody>

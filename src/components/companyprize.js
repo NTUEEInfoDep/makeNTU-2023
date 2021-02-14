@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Img from "gatsby-image";
+import { right } from "inquirer/lib/utils/readline";
 function WidthCalculator(ratio) {
   return Math.floor(100 * ratio).toString() + "px";
 }
@@ -22,7 +23,7 @@ const CompanyPrize = ({ prize }) => (
         className="prize__name"
         style={{
           paddingTop: "100px",
-          fontSize: "200%",
+          fontSize: "150%",
           paddingBottom: "25px",
           marginLeft: "10%",
           marginRight: "10%",
@@ -34,7 +35,7 @@ const CompanyPrize = ({ prize }) => (
         <p
           className="prize__company text-secondary mb-4"
           style={{
-            fontSize: "120%",
+            fontSize: "100%",
             marginRight: "10%",
             marginLeft: "10%",
           }}
@@ -48,15 +49,15 @@ const CompanyPrize = ({ prize }) => (
           <tbody>
             {prize.scoring.scoring.map((item) => (
               <tr>
-                <th>{item.name}:&nbsp;&nbsp;</th>
-                <th>{item.percentage}</th>
+                <th style={{ textAlign: "right" }}>{item.name}:&nbsp;&nbsp;</th>
+                <th style={{ textAlign: "left" }}>{item.percentage}</th>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
       <a href={prize.link}>
-        <button className="btn btn--primary mt-4 mb-0">More...</button>
+        <button className="btn btn--primary mt-4 mb-0">完整內容</button>
       </a>
     </div>
   </div>
