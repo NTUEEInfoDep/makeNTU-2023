@@ -4,6 +4,8 @@ import SEO from "../components/seo";
 import { graphql } from "gatsby";
 
 import Section from "sections/section";
+
+// import HyChouTimeline from "sections/timeline";
 import Prizes from "../sections/prizes";
 
 export const query = graphql`
@@ -50,7 +52,6 @@ export default function PageTemplate({ data }) {
             key={content.id}
           />
         ))}
-      <Prizes contentModuleId="prize" />
     </Layout>
   );
 }

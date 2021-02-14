@@ -1,26 +1,40 @@
 import React from "react";
-import { Link } from "gatsby";
+import PropTypes from "prop-types";
 import Img from "gatsby-image";
 
-import styles from "../assets/css/components/postPreview.css";
+import "../assets/css/components/postPreview.css";
 
-export default ({ post }) => (
-  <div className={styles.preview}>
-    <Img alt="" fluid={post.heroImage.fluid} />
-    <h3 className={styles.previewTitle}>
-      <Link to={`/post/${post.slug}`}>{post.title}</Link>
-    </h3>
-    <small>{post.publishDate}</small>
-    <div
-      dangerouslySetInnerHTML={{
-        __html: post.description.content,
-      }}
-    />
-    {post.tags &&
-      post.tags.map((tag) => (
-        <p className={styles.tag} key={tag}>
-          {tag}
+const postPreview = ({ post }) => (
+    <div className="preview">
+        <Img className="w-full preview-image" alt={post.heroImage.title} fluid={post.heroImage.fluid} />
+        <h3 className="font-medium previewTitle" style={{ marginTop: "0.5rem", marginBottom: "1rem" }}>
+            {post.title}
+        </h3>
+        <p className="font-normal text-sm" style={{ color: "gray" }}>
+            {post.publishDate}
         </p>
-      ))}
-  </div>
+        <div
+            dangerouslySetInnerHTML={{
+                __html: post.description.content,
+            }}
+        />
+        {post.tags &&
+            post.tags.map((tag) =>
+                tag === "important" ? (
+                    <p className="tag-red text-sm" key={tag}>
+                        {tag}
+                    </p>
+                ) : (
+                    <p className="tag text-sm" key={tag}>
+                        {tag}
+                    </p>
+                )
+            )}
+    </div>
 );
+
+postPreview.propTypes = {
+    post: PropTypes.object.isRequired,
+};
+
+export default postPreview;

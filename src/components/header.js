@@ -1,8 +1,8 @@
-import { useStaticQuery, Link, graphql } from "gatsby";
+import { useStaticQuery, Link, graphql, navigate } from "gatsby";
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 
-const Header = ({ menus }) => {
+const Header = ({ menus, back }) => {
     const data = useStaticQuery(
         graphql`
             query {
@@ -59,6 +59,11 @@ const Header = ({ menus }) => {
 
     return (
         <header className="header">
+            {back ? (
+                <button className="material-icons" style={{ fontSize: 45 }} onClick={() => window.history.go(-1)}>
+                    keyboard_arrow_left
+                </button>
+            ) : null}
             <Link to="/">
                 <h1 className="header header__title">{data.site.siteMetadata.title}</h1>
             </Link>
