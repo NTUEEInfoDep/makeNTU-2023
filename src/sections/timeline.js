@@ -31,6 +31,7 @@ export default ({ contentModuleId }) => {
       allContentfulTimelineData {
         edges {
           node {
+            heading
             data {
               date
               events {
@@ -46,8 +47,8 @@ export default ({ contentModuleId }) => {
       }
     }
   `);
-  const timelineData =
-    staticQueryData.allContentfulTimelineData.edges[0].node.data;
+
+  const timelineData = staticQueryData.allContentfulTimelineData.edges[0].node;
 
   const classes = useStyles();
 
@@ -201,7 +202,7 @@ export default ({ contentModuleId }) => {
           data-sal="fade"
           data-sal-easing="ease-in-cubic"
         >
-          活動時程
+          {timelineData.heading}
         </h2>
         <div
           className={classes.root}
@@ -217,7 +218,7 @@ export default ({ contentModuleId }) => {
               alignItems="flex-start"
               spacing={5}
             >
-              <TimelineCards data={timelineData} />
+              <TimelineCards data={timelineData.data} />
             </Grid>
           </ThemeProvider>
         </div>
