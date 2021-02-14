@@ -194,7 +194,7 @@ export default ({ contentModuleId }) => {
   };
 
   return (
-    <section className="section bg-gray">
+    <section id="timeline" className="section bg-gray">
       <div className="container mx-auto">
         <h2 className="text-center section__title mb-16">活動時程</h2>
         <div className={classes.root}>

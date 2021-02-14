@@ -43,7 +43,7 @@ const Sponsors = ({ contentModuleId }) => {
   );
   console.log(content.node.image_sponsors);
   return (
-    <section id="sponsors" className="section mx-auto">
+    <section id="ocs" className="section mx-auto">
       <div className="container mx-auto">
         <div className="mx-auto">
           <h2 className="section__title text-center mb-16">
@@ -53,20 +53,22 @@ const Sponsors = ({ contentModuleId }) => {
         <div className="sponsors__image sponsors__image-wrap mx-auto">
           <SponsorTable feature={content.node.imageOrganizers} />
         </div>
+        <br />
         <div className="mx-auto">
           <h2 className="section__title text-center mb-16">
             {content.node.subtitle2}
           </h2>
         </div>
-        <div className="mx-auto">
+        <div className="sponsors__image mx-auto">
           <SponsorTable feature={content.node.imageCoOrganizers} />
         </div>
-        <div className="mx-auto">
+        <br />
+        <div id="sponsors" className="mx-auto">
           <h2 className="section__title text-center mb-16">
             {content.node.subtitle3}
           </h2>
         </div>
-        <div className="mx-auto">
+        <div className="sponsors__image mx-auto">
           <SponsorTable feature={content.node.image_sponsors} />
         </div>
       </div>
