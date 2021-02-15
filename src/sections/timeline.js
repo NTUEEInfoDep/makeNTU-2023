@@ -74,33 +74,25 @@ export default ({ contentModuleId }) => {
 
   const TimelineEventLeft = (props) => {
     return (
-      <Grid item xs={4}>
-        <Typography color={props.color || "primary"}>
-          <Box textAlign="right" overflow="visable" whiteSpace="nowrap">
-            {props.children}
-          </Box>
-        </Typography>
-      </Grid>
+      <Typography color={props.color || "primary"}>
+        <Box textAlign="right" overflow="visable" whiteSpace="nowrap">
+          {props.children}
+        </Box>
+      </Typography>
     );
   };
 
   const TimelineEventCenter = (props) => {
-    return (
-      <Grid item>
-        <Avatar className={classes.avatar}>{props.children}</Avatar>
-      </Grid>
-    );
+    return <Avatar className={classes.avatar}>{props.children}</Avatar>;
   };
 
   const TimelineEventRight = (props) => {
     return (
-      <Grid item xs={4}>
-        <Typography color={props.color || "primary"}>
-          <Box textAlign="left" overflow="visable" whiteSpace="nowrap">
-            {props.children}
-          </Box>
-        </Typography>
-      </Grid>
+      <Typography color={props.color || "primary"}>
+        <Box textAlign="left" overflow="visable" whiteSpace="nowrap">
+          {props.children}
+        </Box>
+      </Typography>
     );
   };
 
@@ -125,15 +117,23 @@ export default ({ contentModuleId }) => {
           wrap="nowrap"
           spacing={1}
         >
-          <TimelineEventLeft color={props.color}>
-            {props.left}
-          </TimelineEventLeft>
-          <TimelineEventCenter>
-            <TimelineIcon type={props.center} />
-          </TimelineEventCenter>
-          <TimelineEventRight color={props.color}>
-            {props.right}
-          </TimelineEventRight>
+          <Grid item xs={4}>
+            <TimelineEventLeft color={props.color}>
+              {props.left}
+            </TimelineEventLeft>
+          </Grid>
+
+          <Grid item>
+            <TimelineEventCenter>
+              <TimelineIcon type={props.center} />
+            </TimelineEventCenter>
+          </Grid>
+
+          <Grid item xs={4}>
+            <TimelineEventRight color={props.color}>
+              {props.right}
+            </TimelineEventRight>
+          </Grid>
         </Grid>
         <TimelineEventConnector end={props.end} />
       </div>
@@ -166,32 +166,17 @@ export default ({ contentModuleId }) => {
 
   const TimelineCard = (props) => {
     return (
-      <Grid item>
-        <Paper elevation={3} className={classes.paper}>
-          <Box py={5}>
-            <Typography variant="h5" color="primary">
-              <Box mb={3} textAlign="center">
-                {props.title}
-              </Box>
-            </Typography>
-            <TimelineEvents eventData={props.events} />
-          </Box>
-        </Paper>
-      </Grid>
+      <Paper elevation={3} className={classes.paper}>
+        <Box py={5}>
+          <Typography variant="h5" color="primary">
+            <Box mb={3} textAlign="center">
+              {props.title}
+            </Box>
+          </Typography>
+          <TimelineEvents eventData={props.events} />
+        </Box>
+      </Paper>
     );
-  };
-
-  const TimelineCards = (props) => {
-    if (props.data.length) {
-      return (
-        <div>
-          {props.data.map((day) => {
-            return <TimelineCard title={day.date || ""} events={day.events} />;
-          })}
-        </div>
-      );
-    }
-    return <div>error</div>;
   };
 
   return (
@@ -216,9 +201,22 @@ export default ({ contentModuleId }) => {
               direction="row"
               justify="center"
               alignItems="flex-start"
-              spacing={5}
+              spacing={9}
             >
-              <TimelineCards data={timelineData.data} />
+              {timelineData.data.length ? (
+                timelineData.data.map((day) => {
+                  return (
+                    <Grid item>
+                      <TimelineCard
+                        title={day.date || ""}
+                        events={day.events}
+                      />
+                    </Grid>
+                  );
+                })
+              ) : (
+                <Grid item>error</Grid>
+              )}
             </Grid>
           </ThemeProvider>
         </div>
