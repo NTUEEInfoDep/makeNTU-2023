@@ -87,7 +87,7 @@ export default function PostTemplate({ data }) {
                         <div>
                             {post.videoUrl.map((url) => (
                                 <div className="video-container">
-                                    <ReactPlayer url={url} width="min(90vw, 640px)" />
+                                    <ReactPlayer url={url} width="min(90vw, 1000px)" />
                                 </div>
                             ))}
                         </div>

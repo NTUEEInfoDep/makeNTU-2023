@@ -121,7 +121,3 @@ h5 {
     grid-gap: 1em;
     grid-template-columns: repeat(auto-fit, minmax(80px, 100px));
 }
-
-.video-container {
-    width: min(90vw, 500px);
-}
