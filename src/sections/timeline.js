@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default ({ contentModuleId }) => {
-  const staticQueryData = useStaticQuery(graphql`
+  const sQData = useStaticQuery(graphql`
     {
       allContentfulTimelineData {
         edges {
@@ -48,7 +48,7 @@ export default ({ contentModuleId }) => {
     }
   `);
 
-  const timelineData = staticQueryData.allContentfulTimelineData.edges[0].node;
+  const timelineData = sQData.allContentfulTimelineData.edges[0].node;
 
   const classes = useStyles();
 
@@ -68,7 +68,7 @@ export default ({ contentModuleId }) => {
     } else if (props.type === "PollIcon") {
       return <PollIcon />;
     } else {
-      return <>{props.type}</>;
+      return <div>{props.type}</div>;
     }
   };
 
@@ -116,7 +116,7 @@ export default ({ contentModuleId }) => {
 
   const TimelineEvent = (props) => {
     return (
-      <>
+      <div>
         <Grid
           container
           direction="row"
@@ -136,14 +136,14 @@ export default ({ contentModuleId }) => {
           </TimelineEventRight>
         </Grid>
         <TimelineEventConnector end={props.end} />
-      </>
+      </div>
     );
   };
 
   const TimelineEvents = (props) => {
     if (props.eventData.length) {
       return (
-        <>
+        <div>
           {props.eventData.map((event) => {
             return (
               <TimelineEvent
@@ -158,10 +158,10 @@ export default ({ contentModuleId }) => {
               />
             );
           })}
-        </>
+        </div>
       );
     }
-    return <>error</>;
+    return <div>error</div>;
   };
 
   const TimelineCard = (props) => {
@@ -184,14 +184,14 @@ export default ({ contentModuleId }) => {
   const TimelineCards = (props) => {
     if (props.data.length) {
       return (
-        <>
+        <div>
           {props.data.map((day) => {
             return <TimelineCard title={day.date || ""} events={day.events} />;
           })}
-        </>
+        </div>
       );
     }
-    return <>error</>;
+    return <div>error</div>;
   };
 
   return (
