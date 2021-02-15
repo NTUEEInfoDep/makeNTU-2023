@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default ({ contentModuleId }) => {
-  const staticQueryData = useStaticQuery(graphql`
+  const sQData = useStaticQuery(graphql`
     {
       allContentfulTimelineData {
         edges {
@@ -48,7 +48,7 @@ export default ({ contentModuleId }) => {
     }
   `);
 
-  const timelineData = staticQueryData.allContentfulTimelineData.edges[0].node;
+  const timelineData = sQData.allContentfulTimelineData.edges[0].node;
 
   const classes = useStyles();
 
@@ -68,39 +68,31 @@ export default ({ contentModuleId }) => {
     } else if (props.type === "PollIcon") {
       return <PollIcon />;
     } else {
-      return <>{props.type}</>;
+      return <div>{props.type}</div>;
     }
   };
 
   const TimelineEventLeft = (props) => {
     return (
-      <Grid item xs={4}>
-        <Typography color={props.color || "primary"}>
-          <Box textAlign="right" overflow="visable" whiteSpace="nowrap">
-            {props.children}
-          </Box>
-        </Typography>
-      </Grid>
+      <Typography color={props.color || "primary"}>
+        <Box textAlign="right" overflow="visable" whiteSpace="nowrap">
+          {props.children}
+        </Box>
+      </Typography>
     );
   };
 
   const TimelineEventCenter = (props) => {
-    return (
-      <Grid item>
-        <Avatar className={classes.avatar}>{props.children}</Avatar>
-      </Grid>
-    );
+    return <Avatar className={classes.avatar}>{props.children}</Avatar>;
   };
 
   const TimelineEventRight = (props) => {
     return (
-      <Grid item xs={4}>
-        <Typography color={props.color || "primary"}>
-          <Box textAlign="left" overflow="visable" whiteSpace="nowrap">
-            {props.children}
-          </Box>
-        </Typography>
-      </Grid>
+      <Typography color={props.color || "primary"}>
+        <Box textAlign="left" overflow="visable" whiteSpace="nowrap">
+          {props.children}
+        </Box>
+      </Typography>
     );
   };
 
@@ -116,7 +108,7 @@ export default ({ contentModuleId }) => {
 
   const TimelineEvent = (props) => {
     return (
-      <>
+      <div>
         <Grid
           container
           direction="row"
@@ -125,25 +117,33 @@ export default ({ contentModuleId }) => {
           wrap="nowrap"
           spacing={1}
         >
-          <TimelineEventLeft color={props.color}>
-            {props.left}
-          </TimelineEventLeft>
-          <TimelineEventCenter>
-            <TimelineIcon type={props.center} />
-          </TimelineEventCenter>
-          <TimelineEventRight color={props.color}>
-            {props.right}
-          </TimelineEventRight>
+          <Grid item xs={4}>
+            <TimelineEventLeft color={props.color}>
+              {props.left}
+            </TimelineEventLeft>
+          </Grid>
+
+          <Grid item>
+            <TimelineEventCenter>
+              <TimelineIcon type={props.center} />
+            </TimelineEventCenter>
+          </Grid>
+
+          <Grid item xs={4}>
+            <TimelineEventRight color={props.color}>
+              {props.right}
+            </TimelineEventRight>
+          </Grid>
         </Grid>
         <TimelineEventConnector end={props.end} />
-      </>
+      </div>
     );
   };
 
   const TimelineEvents = (props) => {
     if (props.eventData.length) {
       return (
-        <>
+        <div>
           {props.eventData.map((event) => {
             return (
               <TimelineEvent
@@ -158,40 +158,25 @@ export default ({ contentModuleId }) => {
               />
             );
           })}
-        </>
+        </div>
       );
     }
-    return <>error</>;
+    return <div>error</div>;
   };
 
   const TimelineCard = (props) => {
     return (
-      <Grid item>
-        <Paper elevation={3} className={classes.paper}>
-          <Box py={5}>
-            <Typography variant="h5" color="primary">
-              <Box mb={3} textAlign="center">
-                {props.title}
-              </Box>
-            </Typography>
-            <TimelineEvents eventData={props.events} />
-          </Box>
-        </Paper>
-      </Grid>
+      <Paper elevation={3} className={classes.paper}>
+        <Box py={5}>
+          <Typography variant="h5" color="primary">
+            <Box mb={3} textAlign="center">
+              {props.title}
+            </Box>
+          </Typography>
+          <TimelineEvents eventData={props.events} />
+        </Box>
+      </Paper>
     );
-  };
-
-  const TimelineCards = (props) => {
-    if (props.data.length) {
-      return (
-        <>
-          {props.data.map((day) => {
-            return <TimelineCard title={day.date || ""} events={day.events} />;
-          })}
-        </>
-      );
-    }
-    return <>error</>;
   };
 
   return (
@@ -216,9 +201,22 @@ export default ({ contentModuleId }) => {
               direction="row"
               justify="center"
               alignItems="flex-start"
-              spacing={5}
+              spacing={9}
             >
-              <TimelineCards data={timelineData.data} />
+              {timelineData.data.length ? (
+                timelineData.data.map((day) => {
+                  return (
+                    <Grid item>
+                      <TimelineCard
+                        title={day.date || ""}
+                        events={day.events}
+                      />
+                    </Grid>
+                  );
+                })
+              ) : (
+                <Grid item>error</Grid>
+              )}
             </Grid>
           </ThemeProvider>
         </div>
