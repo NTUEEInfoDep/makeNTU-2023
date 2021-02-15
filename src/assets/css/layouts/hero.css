@@ -5,9 +5,10 @@
   background-repeat: no-repeat;
 }
 
-.hero__transbox {
-  background-color: #555555;
-  opacity: 0.8;
+.hero__transbox:not(.disable-scroll) {
+  border-radius: 2%;
+  background-color: #ffffff;
+  opacity: 0.75;
 }
 
 .hero__tagline-content-wrap {
@@ -15,20 +16,27 @@
 }
 
 .hero__tagline {
-  @apply flex items-center w-full text-center;
-  color: white;
+  @apply flex items-center w-full text-left;
+  color: #333333;
 }
 
 .hero__tagline-title {
-  @apply font-bold text-5xl;
+  @apply text-6xl mb-3;
+  font-family: "Advent Pro";
+}
+
+.hero__tagline-pretitle {
+  @apply text-3xl;
+  font-family: "Advent Pro";
 }
 
 .hero__tagline-subtitle {
-  @apply text-2xl;
+  @apply italic;
+  color: #cc0049;
 }
 
 .hero__tagline-text {
-  @apply w-full mt-2;
+  @apply w-full text-lg mr-0 mt-3;
 }
 
 .hero__image {
@@ -43,11 +51,7 @@
 
 @screen md {
   .hero__tagline {
-    @apply w-1/2 text-left;
-  }
-
-  .hero__tagline-text {
-    @apply w-3/4;
+    @apply w-1/2;
   }
 
   .hero__image {

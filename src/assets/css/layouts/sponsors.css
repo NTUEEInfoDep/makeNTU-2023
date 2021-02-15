@@ -1,0 +1,13 @@
+.sponsors__image {
+    @apply w-full p-6;
+}
+
+.sponsors__image-wrap {
+    max-height: 312px;
+    max-width: 400px;
+}
+
+.tableItem {
+    padding-left:2%;
+    padding-right:2%;
+}

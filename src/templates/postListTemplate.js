@@ -58,25 +58,44 @@ export default function PostListTemplate({ data, pageContext }) {
     const menus = data.contentfulLayout.menu;
 
     return (
-        <Layout menus={menus}>
+        <Layout menus={menus} back={true}>
             <SEO title={title} description={description} />
-            <section id="posts" className="posts section">
-                <div className="container mx-auto">
+            <section id="posts" className="posts section pt-5">
+                <div className="container mx-auto" style={{ maxWidth: "1000px" }}>
+                    {/* <div style={{ display: "flex", alignContent: "center" }}>
+                        <button className="material-icons" style={{ fontSize: 45 }}>
+                            keyboard_arrow_left
+                        </button>
+                        <span className="service__title" style={{ fontSize: 25, margin: 0 }}>
+                            Return
+                        </span>
+                    </div> */}
                     <h2 className="section__title text-center mb-16" data-sal="fade" data-sal-easing="ease-in-cubic">
-                        All Posts{" "}
-                        <span style={{ color: "gray", fontSize: 20 }}>— {data.allContentfulPost.totalCount} Posts</span>
+                        所有貼文{" "}
+                        <span style={{ fontWeight: 500, color: "gray", fontSize: 20 }}>
+                            — {data.allContentfulPost.totalCount} Posts
+                        </span>
                     </h2>
-                    <ul style={{ minHeight: 150 }}>
+                    <hr></hr>
+                    <ul style={{ minHeight: 150, marginBottom: "80px" }}>
                         {data.allContentfulPost.edges.map(({ node }) => (
-                            <li key={node.slug} style={{ marginBottom: 20 }}>
-                                <Link to={`/post/${node.slug}`}>
-                                    <h3 className="service__title" style={{ fontSize: 32, marginBottom: 0 }}>
+                            <Link to={`/post/${node.slug}`}>
+                                <li className="postlist" key={node.slug} style={{ marginBottom: 20 }}>
+                                    <h3
+                                        className="service__title"
+                                        style={{ fontWeight: 500, fontSize: 25, marginBottom: 0 }}
+                                    >
                                         {node.title}{" "}
-                                        <span style={{ color: "gray", fontSize: 20 }}>— {node.publishDate}</span>
+                                        <span className="font-medium" style={{ color: "gray", fontSize: 18 }}>
+                                            — {node.publishDate}
+                                        </span>
                                     </h3>
-                                </Link>
-                                <p style={{ fontSize: 18, marginLeft: 2 }}>{node.body.childMarkdownRemark.excerpt}</p>
-                            </li>
+                                    <p className="font-light" style={{ fontSize: 18, marginLeft: 2 }}>
+                                        {node.body.childMarkdownRemark.excerpt}
+                                    </p>
+                                    <hr></hr>
+                                </li>
+                            </Link>
                         ))}
                     </ul>
                     <div class="pagination" style={{ display: "flex", flexDirection: "row", justifyContent: "center" }}>

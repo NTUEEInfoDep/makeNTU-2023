@@ -4,8 +4,8 @@
 
 .nav__menu {
     @apply hidden;
-    font-size: 1.5rem; 
-    
+    font-size: 1.5rem;
+    z-index: 1;
     li {
         @apply p-2 text-2xl uppercase;
 
@@ -24,7 +24,7 @@
     height: 30px;
     width: 35px;
     @apply relative;
-
+    z-index: 2;
     &:focus {
         outline: none;
     }

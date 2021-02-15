@@ -22,6 +22,7 @@ const Posts = ({ contentModuleId }) => {
                             publishDate(formatString: "MMMM Do, YYYY")
                             tags
                             heroImage {
+                                title
                                 fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
                                     ...GatsbyContentfulFluid_tracedSVG
                                 }
@@ -40,27 +41,38 @@ const Posts = ({ contentModuleId }) => {
 
     const content = data.allContentfulLayoutPosts.edges.find((edge) => edge.node.id === contentModuleId);
     return (
-        <section id="posts" className="posts section" style={{ paddingRight: 0 }}>
+        <section id="posts" className="posts section bg-gray" style={{ marginBottom: 30 }}>
             <div className="container mx-auto">
                 <h2 className="section__title text-center mb-16" data-sal="fade" data-sal-easing="ease-in-cubic">
                     {content.node.heading}{" "}
                 </h2>
-                <ul className="post-list" data-sal="fade" data-sal-easing="ease-in-cubic">
+                <ul className="post-list mb-10" data-sal="fade" data-sal-easing="ease-in-cubic">
                     {content.node.posts.map((post) => {
+                        if (post.tags.includes("important")) {
+                            return (
+                                <Link className="hover-red uppercase" to={`/post/${post.slug}`}>
+                                    <li className="mb-16" key={post.slug} id={post.slug}>
+                                        <PostPreview post={post} key={post.id} />
+                                    </li>
+                                </Link>
+                            );
+                        }
                         return (
-                            <li key={post.slug}>
-                                <PostPreview post={post} key={post.id} />
-                            </li>
+                            <Link className="hover uppercase" to={`/post/${post.slug}`}>
+                                <li className="mb-8" key={post.slug} id={post.slug}>
+                                    <PostPreview post={post} key={post.id} />
+                                </li>
+                            </Link>
                         );
                     })}
                 </ul>
-            </div>
-            <div style={{ width: 100, display: "flex", placeContent: "center", placeItems: "center" }}>
-                <Link to="/post">
-                    <button className="post-btn" data-sal="fade" data-sal-delay="300">
-                        <span>View More</span>
-                    </button>
-                </Link>
+                <div style={{ position: "absolute", right: 0, marginBottom: 20 }}>
+                    <Link to="/post">
+                        <button className="post-btn" data-sal="fade" data-sal-delay="300">
+                            <span>View More</span>
+                        </button>
+                    </Link>
+                </div>
             </div>
         </section>
     );
