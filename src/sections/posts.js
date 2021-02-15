@@ -41,7 +41,7 @@ const Posts = ({ contentModuleId }) => {
 
     const content = data.allContentfulLayoutPosts.edges.find((edge) => edge.node.id === contentModuleId);
     return (
-        <section id="posts" className="posts section bg-gray" style={{ marginBottom: 30 }}>
+        <section id="posts" className="posts section bg-gray mb-20">
             <div className="container mx-auto">
                 <h2 className="section__title text-center mb-16" data-sal="fade" data-sal-easing="ease-in-cubic">
                     {content.node.heading}{" "}
@@ -66,7 +66,7 @@ const Posts = ({ contentModuleId }) => {
                         );
                     })}
                 </ul>
-                <div style={{ position: "absolute", right: 0, marginBottom: 20 }}>
+                <div style={{ position: "absolute", right: 0 }}>
                     <Link to="/post">
                         <button className="post-btn" data-sal="fade" data-sal-delay="300">
                             <span>View More</span>

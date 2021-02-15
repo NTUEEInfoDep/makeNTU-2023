@@ -41,6 +41,7 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^6.1.0",
+    "react-player": "^2.8.2",
     "sal.js": "^0.8.1",
     "smooth-scroll": "^16.1.3",
     "validate.js": "^0.13.1",
