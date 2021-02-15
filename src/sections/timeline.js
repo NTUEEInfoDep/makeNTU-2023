@@ -107,37 +107,47 @@ export default ({ contentModuleId }) => {
   };
 
   const TimelineEvent = (props) => {
-    return (
-      <div>
-        <Grid
-          container
-          direction="row"
-          justify="center"
-          alignItems="center"
-          wrap="nowrap"
-          spacing={1}
-        >
-          <Grid item xs={4}>
-            <TimelineEventLeft color={props.color}>
-              {props.left}
-            </TimelineEventLeft>
+    if (props.center === "|") {
+      return (
+        <div>
+          <Typography color="primary">
+            <Box my={-1.2} textAlign="center" lineHeight={0.8}>
+              |<br />|<br />|<br />|<br />|
+            </Box>
+          </Typography>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <Grid
+            container
+            direction="row"
+            justify="center"
+            alignItems="center"
+            wrap="nowrap"
+            spacing={1}
+          >
+            <Grid item xs={4}>
+              <TimelineEventLeft color={props.color}>
+                {props.left}
+              </TimelineEventLeft>
+            </Grid>
+            <Grid item>
+              <TimelineEventCenter>
+                <TimelineIcon type={props.center} />
+              </TimelineEventCenter>
+            </Grid>
+            <Grid item xs={4}>
+              <TimelineEventRight color={props.color}>
+                {props.right}
+              </TimelineEventRight>
+            </Grid>
           </Grid>
-
-          <Grid item>
-            <TimelineEventCenter>
-              <TimelineIcon type={props.center} />
-            </TimelineEventCenter>
-          </Grid>
-
-          <Grid item xs={4}>
-            <TimelineEventRight color={props.color}>
-              {props.right}
-            </TimelineEventRight>
-          </Grid>
-        </Grid>
-        <TimelineEventConnector end={props.end} />
-      </div>
-    );
+          <TimelineEventConnector end={props.end} />
+        </div>
+      );
+    }
   };
 
   const TimelineEvents = (props) => {
