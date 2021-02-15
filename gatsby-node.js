@@ -41,7 +41,7 @@ exports.createPages = ({ graphql, actions }) => {
                 });
             } else if (edge.node.slug === "post") {
                 const posts = result.data.allContentfulPost.edges;
-                const postsPerPage = 10;
+                const postsPerPage = 5;
                 const numPages = Math.ceil(posts.length / postsPerPage);
                 Array.from({ length: numPages }).forEach((_, i) => {
                     createPage({

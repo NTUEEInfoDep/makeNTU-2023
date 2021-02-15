@@ -77,7 +77,7 @@ export default function PostListTemplate({ data, pageContext }) {
                         </span>
                     </h2>
                     <hr></hr>
-                    <ul style={{ minHeight: 150, marginBottom: "80px" }}>
+                    <ul style={{ minHeight: 150, marginBottom: "130px" }}>
                         {data.allContentfulPost.edges.map(({ node }) => (
                             <Link to={`/post/${node.slug}`}>
                                 <li className="postlist" key={node.slug} style={{ marginBottom: 20 }}>
