@@ -15,6 +15,7 @@ const Prizes = ({ contentModuleId }) => {
             image {
               fluid(quality: 100) {
                 src
+                aspectRatio
               }
             }
             title

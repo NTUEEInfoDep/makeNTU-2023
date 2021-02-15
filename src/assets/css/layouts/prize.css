@@ -15,11 +15,9 @@
 }
 
 .prize__image {
-  height: 200px;
   left: 50%;
   top: 30px;
   transform: translateX(-50%);
-  width: 200px;
   @apply absolute rounded-full shadow;
 }
 
