@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
 
-import SponsorTable from "components/sponsorItem";
+import SponsorItem from "components/sponsorItem";
 
 const Sponsors = ({ contentModuleId }) => {
   const data = useStaticQuery(graphql`
@@ -41,7 +41,6 @@ const Sponsors = ({ contentModuleId }) => {
   const content = data.allContentfulLayoutSponsors.edges.find(
     (edge) => edge.node.id === contentModuleId
   );
-  console.log(content.node.image_sponsors);
   return (
     <section id="sponsors" className="section bg-gray mx-auto">
       <div className="container mx-auto">
@@ -55,12 +54,14 @@ const Sponsors = ({ contentModuleId }) => {
           </h2>
         </div>
         <div
-          className="sponsors__image sponsors__image-wrap mx-auto"
+          className="mx-auto padding sponsors__image-wrap"
           data-sal="fade"
           data-sal-delay="100"
           data-sal-easing="ease-in-cubic"
         >
-          <SponsorTable feature={content.node.imageOrganizers} />
+          {content.node.imageOrganizers.map((sponsor) => (
+              <SponsorItem href={sponsor.description} fluid={sponsor.fluid} />
+            ))}
         </div>
         <br />
         <div className="mx-auto">
@@ -74,12 +75,14 @@ const Sponsors = ({ contentModuleId }) => {
           </h2>
         </div>
         <div
-          className="sponsors__image mx-auto"
+          className="mx-auto sponsors gap-12 padding"
           data-sal="fade"
           data-sal-delay="300"
           data-sal-easing="ease-in-cubic"
         >
-          <SponsorTable feature={content.node.imageCoOrganizers} />
+          {content.node.imageCoOrganizers.map((sponsor) => (
+              <SponsorItem href={sponsor.description} fluid={sponsor.fluid} />
+            ))}
         </div>
         <br />
         <div className="mx-auto">
@@ -93,12 +96,14 @@ const Sponsors = ({ contentModuleId }) => {
           </h2>
         </div>
         <div
-          className="sponsors__image mx-auto"
+          className="mx-auto sponsors gap-12 padding"
           data-sal="fade"
           data-sal-delay="500"
           data-sal-easing="ease-in-cubic"
         >
-          <SponsorTable feature={content.node.image_sponsors} />
+          {content.node.image_sponsors.map((sponsor) => (
+              <SponsorItem href={sponsor.description} fluid={sponsor.fluid} />
+            ))}
         </div>
       </div>
     </section>

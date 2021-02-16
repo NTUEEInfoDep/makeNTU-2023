@@ -1,13 +1,21 @@
-.sponsors__image {
-    @apply w-full p-6;
-}
-
 .sponsors__image-wrap {
-    max-height: 312px;
-    max-width: 400px;
+    max-width: 80%;
 }
 
-.tableItem {
-    padding-left:2%;
-    padding-right:2%;
+.padding {
+    padding-left: 15%;
+    padding-right: 15%;    
+}
+
+.sponsors {
+    @apply grid grid-cols-2
+}
+
+@screen md {
+    .sponsors {
+        @apply grid grid-cols-4
+    }
+    .sponsors__image-wrap {
+        max-width: 60%;
+    }
 }
