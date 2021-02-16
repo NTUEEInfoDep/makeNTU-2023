@@ -1,10 +1,21 @@
-FROM node:alpine as builder
+
+# pull official base image
+FROM node:14.14.0-alpine
+
+# set working directory
 WORKDIR /app
 
-COPY package.json .
-RUN npm install
-COPY . .
+# add `/app/node_modules/.bin` to $PATH
+ENV PATH /app/node_modules/.bin:$PATH
+
+# install app dependencies
+COPY package.json ./
+COPY . ./
+RUN npm install --silent
+
+# add app
 RUN npm run build
 
-FROM nginx EXPOSE 80
-COPY --from=builder /app/public /usr/share/nginx/html
+# start app
+#CMD ["npm", "run", "build"]
+CMD ["npm", "run", "serve"]
