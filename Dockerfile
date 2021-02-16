@@ -10,12 +10,15 @@ ENV PATH /app/node_modules/.bin:$PATH
 
 # install app dependencies
 COPY package.json ./
-COPY . ./
-RUN npm install --silent
+# COPY yarn.lock ./
+
+# RUN npm install --silent
+RUN yarn --silent
 
 # add app
+COPY . ./
 RUN npm run build
 
 # start app
 #CMD ["npm", "run", "build"]
-CMD ["npm", "run", "serve"]
+CMD ["npm", "start"]
