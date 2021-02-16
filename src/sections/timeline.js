@@ -3,15 +3,18 @@ import { useStaticQuery, graphql } from "gatsby";
 
 import { createMuiTheme, makeStyles } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
-import { Avatar, Box, Grid, Paper, Typography } from "@material-ui/core";
+import { Avatar, Box, Grid, Typography } from "@material-ui/core";
 
-import BuildIcon from "@material-ui/icons/Build";
 import Brightness2Icon from "@material-ui/icons/Brightness2";
 import Brightness7Icon from "@material-ui/icons/Brightness7";
-import RestaurantIcon from "@material-ui/icons/Restaurant";
-import HowToRegIcon from "@material-ui/icons/HowToReg";
+import BuildIcon from "@material-ui/icons/Build";
+import EmojiEventsIcon from "@material-ui/icons/EmojiEvents";
 import EqualizerIcon from "@material-ui/icons/Equalizer";
+import HowToRegIcon from "@material-ui/icons/HowToReg";
+import PeopleIcon from "@material-ui/icons/People";
 import PollIcon from "@material-ui/icons/Poll";
+import RestaurantIcon from "@material-ui/icons/Restaurant";
+import WcIcon from "@material-ui/icons/Wc";
 
 const theme = createMuiTheme({
   palette: {
@@ -21,8 +24,9 @@ const theme = createMuiTheme({
 });
 
 const useStyles = makeStyles((theme) => ({
-  avatar: { backgroundColor: "#E3B600" },
-  paper: { padding: theme.spacing(2, 8) },
+  primary: { backgroundColor: "#0081A8" },
+  secondary: { backgroundColor: "#CC0049" },
+  avatar: { backgroundColor: "#0081A8" },
 }));
 
 export default ({ contentModuleId }) => {
@@ -37,7 +41,6 @@ export default ({ contentModuleId }) => {
               events {
                 color
                 icon
-                notEnd
                 text
                 time
               }
@@ -53,22 +56,28 @@ export default ({ contentModuleId }) => {
   const classes = useStyles();
 
   const TimelineIcon = (props) => {
-    if (props.type === "BuildIcon") {
-      return <BuildIcon />;
-    } else if (props.type === "Brightness2Icon") {
+    if (props.type === "Brightness2Icon") {
       return <Brightness2Icon />;
     } else if (props.type === "Brightness7Icon") {
       return <Brightness7Icon />;
-    } else if (props.type === "RestaurantIcon") {
-      return <RestaurantIcon />;
-    } else if (props.type === "HowToRegIcon") {
-      return <HowToRegIcon />;
+    } else if (props.type === "BuildIcon") {
+      return <BuildIcon />;
+    } else if (props.type === "EmojiEventsIcon") {
+      return <EmojiEventsIcon />;
     } else if (props.type === "EqualizerIcon") {
       return <EqualizerIcon />;
+    } else if (props.type === "HowToRegIcon") {
+      return <HowToRegIcon />;
+    } else if (props.type === "PeopleIcon") {
+      return <PeopleIcon />;
     } else if (props.type === "PollIcon") {
       return <PollIcon />;
+    } else if (props.type === "RestaurantIcon") {
+      return <RestaurantIcon />;
+    } else if (props.type === "WcIcon") {
+      return <WcIcon />;
     } else {
-      return <div>{props.type}</div>;
+      return <div>&ensp;</div>;
     }
   };
 
@@ -83,7 +92,15 @@ export default ({ contentModuleId }) => {
   };
 
   const TimelineEventCenter = (props) => {
-    return <Avatar className={classes.avatar}>{props.children}</Avatar>;
+    return (
+      <Avatar
+        className={
+          props.color === "secondary" ? classes.secondary : classes.primary
+        }
+      >
+        {props.children}
+      </Avatar>
+    );
   };
 
   const TimelineEventRight = (props) => {
@@ -134,7 +151,7 @@ export default ({ contentModuleId }) => {
               </TimelineEventLeft>
             </Grid>
             <Grid item>
-              <TimelineEventCenter>
+              <TimelineEventCenter color={props.color}>
                 <TimelineIcon type={props.center} />
               </TimelineEventCenter>
             </Grid>
@@ -158,10 +175,7 @@ export default ({ contentModuleId }) => {
             return (
               <TimelineEvent
                 color={event.color}
-                end={
-                  !event.notEnd &&
-                  props.eventData[props.eventData.length - 1] === event
-                }
+                end={props.eventData[props.eventData.length - 1] === event}
                 center={event.icon}
                 left={event.time}
                 right={event.text}
@@ -176,16 +190,12 @@ export default ({ contentModuleId }) => {
 
   const TimelineCard = (props) => {
     return (
-      <Paper elevation={3} className={classes.paper}>
-        <Box py={5}>
-          <Typography variant="h5" color="primary">
-            <Box mb={3} textAlign="center">
-              {props.title}
-            </Box>
-          </Typography>
-          <TimelineEvents eventData={props.events} />
+      <Typography variant="h5" color="primary">
+        <Box mb={3} textAlign="center">
+          {props.title}
         </Box>
-      </Paper>
+        <TimelineEvents eventData={props.events} />
+      </Typography>
     );
   };
 
