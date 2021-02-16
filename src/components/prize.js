@@ -1,14 +1,21 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Img from "gatsby-image";
-
+function WidthCalculator(ratio) {
+  const scale = 40;
+  return Math.floor(ratio * scale).toString() + "%";
+}
 const Prize = ({ prize }) => (
   <div className="prize" style={{ paddingTop: "15px", marginTop: "0px" }}>
     <div className="prize__content">
       <Img
         fluid={prize.image.fluid}
         className="prize__image"
-        style={{ position: "absolute" }}
+        style={{
+          position: "absolute",
+          width: WidthCalculator(prize.image.fluid.aspectRatio),
+          height: `width`,
+        }}
       />
       <strong
         className="prize__name"

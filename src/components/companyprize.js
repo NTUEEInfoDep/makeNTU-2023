@@ -3,7 +3,8 @@ import PropTypes from "prop-types";
 import Img from "gatsby-image";
 import { right } from "inquirer/lib/utils/readline";
 function WidthCalculator(ratio) {
-  return Math.floor(100 * ratio).toString() + "px";
+  const scale = 20;
+  return Math.floor(ratio * scale).toString() + "%";
 }
 
 const CompanyPrize = ({ prize }) => (
@@ -14,8 +15,8 @@ const CompanyPrize = ({ prize }) => (
         className="prize__image2"
         style={{
           position: "absolute",
-          height: "100px",
           width: WidthCalculator(prize.image.fluid.aspectRatio),
+          height: `width` / `prize.image.fluid.aspectRatio`,
         }}
       />
 
