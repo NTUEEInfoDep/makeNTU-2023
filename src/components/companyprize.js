@@ -29,8 +29,8 @@ const CompanyPrize = ({ prize }) => (
           paddingTop: Strong_pt_Calculator(prize.image.fluid.aspectRatio),
           fontSize: "150%",
           paddingBottom: "25px",
-          marginLeft: "10%",
-          marginRight: "10%",
+          marginLeft: "5%",
+          marginRight: "5%",
         }}
       >
         {prize.title}
@@ -40,8 +40,8 @@ const CompanyPrize = ({ prize }) => (
           className="prize__company text-secondary mb-4"
           style={{
             fontSize: "100%",
-            marginRight: "10%",
-            marginLeft: "10%",
+            marginRight: "5%",
+            marginLeft: "5%",
           }}
         >
           {item.content[0].value}
