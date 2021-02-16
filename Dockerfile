@@ -13,7 +13,7 @@ COPY package.json ./
 # COPY yarn.lock ./
 
 # RUN npm install --silent
-RUN yarn --silent
+RUN yarn 
 
 # add app
 COPY . ./
