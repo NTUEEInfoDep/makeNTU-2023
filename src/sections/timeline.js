@@ -17,7 +17,6 @@ const theme = createMuiTheme({
 const useStyles = makeStyles((theme) => ({
   primary: { backgroundColor: "#0081A8" },
   secondary: { backgroundColor: "#CC0049" },
-  avatar: { backgroundColor: "#0081A8" },
 }));
 
 export default ({ contentModuleId }) => {
