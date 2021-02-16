@@ -5,6 +5,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import Glider from "glider-js";
 import Prize from "components/prize";
 import CompanyPrize from "components/companyprize";
+import "../assets/css/layouts/prize.css";
 
 const Prizes = ({ contentModuleId }) => {
   const data = useStaticQuery(graphql`
@@ -66,6 +67,7 @@ const Prizes = ({ contentModuleId }) => {
   const initSlider = () => {
     new Glider(document.querySelector(".glider1"), {
       slidesToShow: 1,
+      scrollLock: true,
       dots: ".glider1__dots",
       draggable: true,
       arrows: {
@@ -75,6 +77,7 @@ const Prizes = ({ contentModuleId }) => {
     });
     new Glider(document.querySelector(".glider2"), {
       slidesToShow: 1,
+      scrollLock: true,
       dots: ".glider2__dots",
       draggable: true,
       arrows: {
@@ -83,7 +86,15 @@ const Prizes = ({ contentModuleId }) => {
       },
     });
   };
-
+  useEffect(() => {
+    window.onload = function () {
+      console.log("refresh");
+      const glider1 = Glider(document.querySelector(".glider1"));
+      const glider2 = Glider(document.querySelector(".glider2"));
+      glider1.refresh();
+      glider2.refresh();
+    };
+  }, []);
   useEffect(() => {
     initSlider();
   });
@@ -95,7 +106,7 @@ const Prizes = ({ contentModuleId }) => {
         style={{ marginRight: "10px" }}
       >
         <h2
-          className="w-full font-bold leading-none section__title mb-16"
+          className="w-full font-bold leading-none section__title"
           data-sal="fade"
           data-sal-easing="ease-in-cubic"
           style={{ textAlign: "center" }}
@@ -109,7 +120,7 @@ const Prizes = ({ contentModuleId }) => {
               data-sal="fade"
               data-sal-easing="ease-in-cubic"
             >
-              <div className="glider1">
+              <div className="glider1" id="glider1">
                 {content.map((prize) => (
                   <Prize prize={prize.node} key={prize.node.id} />
                 ))}
@@ -141,7 +152,7 @@ const Prizes = ({ contentModuleId }) => {
       </div>
       <div className="w-full md:w-1/2 pl-0 text-center md:text-left">
         <h2
-          className="w-full font-bold leading-none section__title mb-16"
+          className="w-full font-bold leading-none section__title"
           data-sal="fade"
           data-sal-easing="ease-in-cubic"
           style={{ textAlign: "center" }}

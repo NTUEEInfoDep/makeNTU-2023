@@ -6,7 +6,10 @@ function WidthCalculator(ratio) {
   const scale = 20;
   return Math.floor(ratio * scale).toString() + "%";
 }
-
+function Strong_pt_Calculator(ratio) {
+  const scale = 20;
+  return Math.floor(scale).toString() + "%";
+}
 const CompanyPrize = ({ prize }) => (
   <div className="prize" style={{ paddingTop: "15px" }}>
     <div className="prize__content">
@@ -23,7 +26,7 @@ const CompanyPrize = ({ prize }) => (
       <strong
         className="prize__name"
         style={{
-          paddingTop: "100px",
+          paddingTop: Strong_pt_Calculator(prize.image.fluid.aspectRatio),
           fontSize: "150%",
           paddingBottom: "25px",
           marginLeft: "10%",
