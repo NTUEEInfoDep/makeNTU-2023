@@ -60,7 +60,18 @@ const Header = ({ menus, back }) => {
     return (
         <header className="header">
             {back ? (
-                <button className="material-icons" style={{ fontSize: 45 }} onClick={() => window.history.go(-1)}>
+                <button
+                    className="material-icons"
+                    style={{ fontSize: 45 }}
+                    onClick={() => {
+                        // console.log(window.location.pathname);
+                        if (window.location.pathname === "/post") {
+                            navigate("/");
+                        } else {
+                            navigate("/post");
+                        }
+                    }}
+                >
                     keyboard_arrow_left
                 </button>
             ) : null}
