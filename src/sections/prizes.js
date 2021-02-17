@@ -88,7 +88,7 @@ const Prizes = ({ contentModuleId }) => {
   };
   useEffect(() => {
     window.onload = function () {
-      console.log("refresh");
+      //console.log("refresh");
       const glider1 = Glider(document.querySelector(".glider1"));
       const glider2 = Glider(document.querySelector(".glider2"));
       glider1.refresh();
