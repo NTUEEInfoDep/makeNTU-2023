@@ -40,11 +40,14 @@ const Posts = ({ contentModuleId }) => {
       }
     }
   `);
-  $(window).on("load", function () {
-    console.log("window onload");
-    $("#post__container").load(window.location.href + "#post__container");
-    console.log("onload finished");
-  });
+  useEffect(() => {
+    $(window).on("load", function () {
+      console.log("window onload");
+      $("#post__container").load(window.location.href + "#post__container");
+      console.log("onload finished");
+    });
+  }, []);
+
   //   const ReloadPosts = function () {
   //     console.log("window onload");
   //     $("#post__container").load(window.location.href + " #post__container");
