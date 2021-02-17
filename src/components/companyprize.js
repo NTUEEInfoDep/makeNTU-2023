@@ -31,6 +31,7 @@ const CompanyPrize = ({ prize }) => (
           paddingBottom: "25px",
           marginLeft: "5%",
           marginRight: "5%",
+          lineHeight: "40px",
         }}
       >
         {prize.title}
