@@ -14,7 +14,6 @@ const Header = ({ menus, back }) => {
       }
     }
   `);
-
   const headerData = sQData.allContentfulLayoutHeader.edges[0].node;
 
   let navMenuButton, navMenu;
@@ -81,7 +80,7 @@ const Header = ({ menus, back }) => {
         </button>
       ) : null}
       <Link to="/">
-        <h1 className="header header__title">{headerData.title}}</h1>
+        <h1 className="header header__title">{headerData.title}</h1>
       </Link>
       {mainMenu !== null && mainMenu !== undefined && (
         <nav className="nav">
