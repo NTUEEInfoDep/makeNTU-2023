@@ -6,7 +6,12 @@ import "../assets/css/components/postPreview.css";
 
 const postPreview = ({ post }) => (
     <div className="preview">
-        <Img className="w-full preview-image" alt={post.heroImage.title} fluid={post.heroImage.fluid} />
+        <Img
+            className="preview-image"
+            alt={post.heroImage.title}
+            imgStyle={{ objectFit: "none" }}
+            fluid={post.heroImage.fluid}
+        />
         <h3 className="font-medium previewTitle" style={{ marginTop: "0.5rem", marginBottom: "1rem" }}>
             {post.title}
         </h3>

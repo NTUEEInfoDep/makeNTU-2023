@@ -23,3 +23,7 @@
     border: 1px solid #e95c49;
     margin-right: 0.5em;
 }
+
+.preview-image {
+    object-fit: fill;
+}

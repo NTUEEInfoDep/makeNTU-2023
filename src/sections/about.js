@@ -47,9 +47,9 @@ const About = ({ contentModuleId }) => {
                         {content.node.heading}
                     </h2>
                     <div
-                        data-sal="slide-up"
-                        data-sal-easing="ease-in-cubic"
-                        data-sal-delay="100"
+                        // data-sal="slide-up"
+                        // data-sal-easing="ease-in-cubic"
+                        // data-sal-delay="100"
                         dangerouslySetInnerHTML={{
                             __html: content.node.description.childContentfulRichText.html,
                         }}
@@ -67,9 +67,9 @@ const About = ({ contentModuleId }) => {
                 <div className="about-us__image">
                     <div
                         className="mx-auto about-us__image-wrap"
-                        data-sal="slide-up"
-                        data-sal-delay="200"
-                        data-sal-duration="500"
+                        // data-sal="slide-up"
+                        // data-sal-delay="200"
+                        // data-sal-duration="500"
                     >
                         <Img fluid={content.node.image.fluid} />
                     </div>
