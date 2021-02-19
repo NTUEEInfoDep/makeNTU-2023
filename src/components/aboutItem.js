@@ -2,7 +2,7 @@ import React from "react";
 
 const AboutItem = ({ feature }) => (
     <li className="mb-6">
-        <div className="item" data-sal="slide-up" data-sal-easing="ease-in-cubic">
+        <div className="item">
             <i className="item__icon material-icons text-primary">{feature.icon}</i>
             <div className="item__content">
                 <h3 className="item__title font-semibold mt-0">{feature.title}</h3>

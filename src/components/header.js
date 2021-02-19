@@ -9,11 +9,6 @@ const Header = ({ menus, back }) => {
                 edges {
                     node {
                         title
-                        iconImage {
-                            fluid(quality: 100) {
-                                ...GatsbyContentfulFluid
-                            }
-                        }
                     }
                 }
             }

@@ -57,9 +57,7 @@ const Posts = ({ contentModuleId }) => {
     return (
         <section id="posts" className="posts section bg-gray mb-20">
             <div className="container mx-auto" id="post__container">
-                <h2 className="section__title text-center mb-16" data-sal="fade" data-sal-easing="ease-in-cubic">
-                    {content.node.heading}{" "}
-                </h2>
+                <h2 className="section__title text-center mb-12">{content.node.heading} </h2>
                 <ul className="post-list mb-10">
                     {content.node.posts.map((post) => {
                         if (post.tags.includes("important")) {
@@ -82,7 +80,7 @@ const Posts = ({ contentModuleId }) => {
                 </ul>
                 <div style={{ position: "absolute", right: 0 }}>
                     <Link to="/post">
-                        <button className="post-btn" data-sal="fade" data-sal-delay="300">
+                        <button className="post-btn">
                             <span>View More</span>
                         </button>
                     </Link>
