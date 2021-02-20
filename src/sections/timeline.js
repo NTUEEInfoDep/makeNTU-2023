@@ -149,7 +149,7 @@ export default ({ contentModuleId }) => {
     };
 
     return (
-        <section id="timeline" className="section bg-gray">
+        <section id="timeline" className="section pt-8">
             <div className="container mx-auto">
                 <h2 className="text-center section__title mb-16">{timelineData.heading}</h2>
                 <div className={classes.root}>

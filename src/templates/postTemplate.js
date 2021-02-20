@@ -5,6 +5,7 @@ import SEO from "../components/seo";
 import { graphql, Link } from "gatsby";
 import ReactPlayer from "react-player";
 import "templates/postTemplate.css";
+import { Minimize } from "@material-ui/icons";
 
 export const query = graphql`
     query PostBySlug($slug: String!, $layoutSlug: String!) {
@@ -87,7 +88,7 @@ export default function PostTemplate({ data }) {
                         <div>
                             {post.videoUrl.map((url) => (
                                 <div className="video-container">
-                                    <ReactPlayer url={url} width="min(90vw, 1000px)" />
+                                    <ReactPlayer url={url} className="video" width="min(90vw, 640px)" />
                                 </div>
                             ))}
                         </div>

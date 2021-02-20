@@ -100,86 +100,83 @@ const Prizes = ({ contentModuleId }) => {
     });
 
     return (
-        <section id="prizes" className="prizes container section mx-auto">
-            <div className="w-full md:w-1/2 pl-0 text-center md:text-left" style={{ marginRight: "10px" }}>
-                <h2
-                    className="w-full font-bold leading-none section__title"
-                    data-sal="fade"
-                    data-sal-easing="ease-in-cubic"
-                    style={{ textAlign: "center" }}
-                >
-                    大會獎
-                </h2>
-                <div className="w-full md:pt-0">
-                    {content.length > 0 && (
-                        <div className="prize__slider">
-                            <div className="glider1" id="glider1">
-                                {content.map((prize) => (
-                                    <Prize prize={prize.node} key={prize.node.id} />
-                                ))}
+        <section id="prizes" className="prizes section mx-auto" style={{ justifyContent: "center" }}>
+            <div className="container flex flex-col md:flex-row" style={{ justifyContent: "center" }}>
+                <div className="w-full md:w-2/5 pl-0 text-center md:text-left" style={{ marginRight: "10px" }}>
+                    <h2 className="w-full font-bold leading-none section__title" style={{ textAlign: "center" }}>
+                        大會獎
+                    </h2>
+                    <div className="w-full md:pt-0">
+                        {content.length > 0 && (
+                            <div className="prize__slider">
+                                <div className="glider1" id="glider1">
+                                    {content.map((prize) => (
+                                        <Prize prize={prize.node} key={prize.node.id} />
+                                    ))}
+                                </div>
+                                <div style={{ width: "80%", transform: "translateX(12%)" }}>
+                                    <button
+                                        className="glider1-prev material-icons"
+                                        style={{
+                                            position: "absolute",
+                                            left: "0px",
+                                        }}
+                                    >
+                                        keyboard_arrow_left
+                                    </button>
+                                    <button
+                                        className="glider1-next material-icons"
+                                        style={{ position: "absolute", right: "0px" }}
+                                    >
+                                        keyboard_arrow_right
+                                    </button>
+                                </div>
+                                <div className="glider1__dots" style={{ marginBottom: "30px" }}></div>
                             </div>
-                            <div style={{ width: "80%", transform: "translateX(12%)" }}>
-                                <button
-                                    className="glider1-prev material-icons"
-                                    style={{
-                                        position: "absolute",
-                                        left: "0px",
-                                    }}
-                                >
-                                    keyboard_arrow_left
-                                </button>
-                                <button
-                                    className="glider1-next material-icons"
-                                    style={{ position: "absolute", right: "0px" }}
-                                >
-                                    keyboard_arrow_right
-                                </button>
-                            </div>
-                            <div className="glider1__dots" style={{ marginBottom: "30px" }}></div>
-                        </div>
-                    )}
+                        )}
+                    </div>
                 </div>
-            </div>
-            <div className="w-full md:w-1/2 pl-0 text-center md:text-left">
-                <h2 className="w-full font-bold leading-none section__title" style={{ textAlign: "center" }}>
-                    企業獎
-                </h2>
-                <div className="w-full md:pt-0">
-                    {content2.length > 0 && (
-                        <div className="prize__slider">
-                            <div className="glider2">
-                                {content2.map((prize) => (
-                                    <CompanyPrize prize={prize.node} key={prize.node.id} />
-                                ))}
-                            </div>
-                            <div
-                                style={{
-                                    width: "80%",
-                                    transform: "translateX(12%)",
-                                }}
-                            >
-                                <button
-                                    className="glider2-prev material-icons"
+                <div className="w-full md:w-2/5 pl-0 text-center md:text-left">
+                    <h2 className="w-full font-bold leading-none section__title" style={{ textAlign: "center" }}>
+                        企業獎
+                    </h2>
+                    <div className="w-full md:pt-0">
+                        {content2.length > 0 && (
+                            <div className="prize__slider">
+                                <div className="glider2">
+                                    {content2.map((prize) => (
+                                        <CompanyPrize prize={prize.node} key={prize.node.id} />
+                                    ))}
+                                </div>
+                                <div
                                     style={{
-                                        position: "absolute",
-                                        left: "0px",
+                                        width: "80%",
+                                        transform: "translateX(12%)",
                                     }}
                                 >
-                                    keyboard_arrow_left
-                                </button>
-                                <button
-                                    className="glider2-next material-icons"
-                                    style={{
-                                        position: "absolute",
-                                        right: "0px",
-                                    }}
-                                >
-                                    keyboard_arrow_right
-                                </button>
+                                    <button
+                                        className="glider2-prev material-icons"
+                                        style={{
+                                            position: "absolute",
+                                            left: "0px",
+                                        }}
+                                    >
+                                        keyboard_arrow_left
+                                    </button>
+                                    <button
+                                        className="glider2-next material-icons"
+                                        style={{
+                                            position: "absolute",
+                                            right: "0px",
+                                        }}
+                                    >
+                                        keyboard_arrow_right
+                                    </button>
+                                </div>
+                                <div className="glider2__dots" style={{ marginBottom: "15px" }}></div>
                             </div>
-                            <div className="glider2__dots" style={{ marginBottom: "15px" }}></div>
-                        </div>
-                    )}
+                        )}
+                    </div>
                 </div>
             </div>
         </section>

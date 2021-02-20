@@ -14,6 +14,7 @@ const Header = ({ menus, back }) => {
             }
         }
     `);
+
     const headerData = sQData.allContentfulLayoutHeader.edges[0].node;
 
     let navMenuButton, navMenu;

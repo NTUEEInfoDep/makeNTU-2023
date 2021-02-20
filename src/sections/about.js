@@ -40,12 +40,10 @@ const About = ({ contentModuleId }) => {
     const content = data.allContentfulLayoutAbout.edges.find((edge) => edge.node.id === contentModuleId);
 
     return (
-        <section id="about" className="about-us bg-white">
-            <div className="container section mx-auto">
+        <section id="about" className="about-us bg-white pb-8">
+            <div className="container section mx-auto pb-8">
                 <div className="about-us__content">
-                    <h2 className="section__title" data-sal="fade" data-sal-easing="ease-in-cubic">
-                        {content.node.heading}
-                    </h2>
+                    <h2 className="section__title">{content.node.heading}</h2>
                     <div
                         // data-sal="slide-up"
                         // data-sal-easing="ease-in-cubic"
