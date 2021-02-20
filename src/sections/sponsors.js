@@ -54,7 +54,7 @@ const Sponsors = ({ contentModuleId }) => {
           </h2>
         </div>
         <div
-          className="mx-auto padding sponsors__image-wrap"
+          className="mx-auto organizer"
           data-sal="fade"
           data-sal-delay="100"
           data-sal-easing="ease-in-cubic"
@@ -75,7 +75,7 @@ const Sponsors = ({ contentModuleId }) => {
           </h2>
         </div>
         <div
-          className="mx-auto sponsors gap-12 padding"
+          className="mx-auto coorganizers gap-12 padding"
           data-sal="fade"
           data-sal-delay="300"
           data-sal-easing="ease-in-cubic"

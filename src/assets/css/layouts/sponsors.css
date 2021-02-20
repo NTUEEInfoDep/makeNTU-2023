@@ -1,21 +1,34 @@
-.sponsors__image-wrap {
-    max-width: 80%;
+.organizer {
+    padding-left: 30%;
+    padding-right: 30%;
 }
 
-.padding {
-    padding-left: 15%;
-    padding-right: 15%;    
+.coorganizers{
+    padding-left: 5%;
+    padding-right: 5%;
+    @apply grid grid-cols-3
 }
 
 .sponsors {
+    padding-left: 10%;
+    padding-right: 10%;
     @apply grid grid-cols-2
 }
-
 @screen md {
-    .sponsors {
-        @apply grid grid-cols-4
+    .organizer {
+        padding-left: 40%;
+        padding-right: 40%;
     }
-    .sponsors__image-wrap {
-        max-width: 60%;
+    
+    .coorganizers{
+        padding-left: 25%;
+        padding-right: 25%;
+        @apply grid grid-cols-3
+    }
+    
+    .sponsors {
+        padding-left: 25%;
+        padding-right: 25%;
+        @apply grid grid-cols-2
     }
 }
