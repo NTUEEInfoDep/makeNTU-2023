@@ -9,6 +9,7 @@ module.exports = {
     author: `NTUEEInfoDep`,
   },
   plugins: [
+    `gatsby-plugin-netlify-cache`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
