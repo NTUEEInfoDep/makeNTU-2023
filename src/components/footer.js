@@ -15,8 +15,8 @@ const Footer = ({ menus }) => {
         menuLinks
         followUs
         facebookUrl
-        twitterUrl
-        instagramUrl
+        gitHubUrl
+        youTubeUrl
       }
     }
   `);
@@ -116,47 +116,34 @@ const Footer = ({ menus }) => {
             {data.contentfulContactDetails.followUs}
           </h3>
           <ul className="flex text-sm">
-            {data.contentfulContactDetails.facebookUrl ? (
-              <li className="mb-2 mr-4">
-                <a href={data.contentfulContactDetails.facebookUrl}>
-                  <img
-                    className="w-6 h-6"
-                    src={require("assets/images/facebook.svg")}
-                    alt="Facebook Icon"
-                  />
-                </a>
-              </li>
-            ) : (
-              <li />
-            )}
-            {data.contentfulContactDetails.twitterUrl ===
-            "https://www.twitter.com" ? (
-              <li />
-            ) : (
-              <li className="mb-2 mr-4">
-                <a href={data.contentfulContactDetails.twitterUrl}>
-                  <img
-                    className="w-6 h-6"
-                    src={require("assets/images/twitter.svg")}
-                    alt="Twitter Icon"
-                  />
-                </a>
-              </li>
-            )}
-            {data.contentfulContactDetails.instagramUrl ===
-            "https://www.instagram.com" ? (
-              <li />
-            ) : (
-              <li className="mb-2 mr-4">
-                <a href={data.contentfulContactDetails.instagramUrl}>
-                  <img
-                    className="w-6 h-6"
-                    src={require("assets/images/instagram.svg")}
-                    alt="Instagram Icon"
-                  />
-                </a>
-              </li>
-            )}
+            <li className="mb-2 mr-4">
+              <a href={data.contentfulContactDetails.facebookUrl}>
+                <img
+                  className="w-6 h-6"
+                  // src={require("assets/images/GitHub-Mark-Light-120px-plus.png")}
+                  src={require("assets/images/facebook.svg")}
+                  alt="Facebook Icon"
+                />
+              </a>
+            </li>
+            <li className="mb-2 mr-4">
+              <a href={data.contentfulContactDetails.gitHubUrl}>
+                <img
+                  className="w-6 h-6"
+                  src={require("assets/images/GitHub-Mark-Light-120px-plus.png")}
+                  alt="GitHub Mark"
+                />
+              </a>
+            </li>
+            <li className="mb-2 mr-4">
+              <a href={data.contentfulContactDetails.youTubeUrl}>
+                <img
+                  className="w-6 h-6"
+                  src={require("assets/images/youtube_social_circle_white.png")}
+                  alt="YouTube Icon"
+                />
+              </a>
+            </li>
           </ul>
         </div>
       </div>
