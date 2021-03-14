@@ -5,7 +5,7 @@ import { graphql, Link } from "gatsby";
 import "./postListTemplate.css";
 
 export const query = graphql`
-    query($slug: String!, $skip: Int!, $limit: Int!) {
+    query($slug: String!) {
         contentfulLayout(slug: { eq: $slug }) {
             id
             slug
@@ -27,29 +27,7 @@ export const query = graphql`
                 }
             }
         }
-        allContentfulLayoutPosts(sort: { fields: posts___publishDate, order: DESC }, limit: $limit, skip: $skip) {
-            edges {
-                node {
-                    posts {
-                        id
-                        slug
-                        title
-                        description {
-                            childMarkdownRemark {
-                                html
-                            }
-                        }
-                        publishDate(formatString: "MMMM Do, YYYY")
-                        body {
-                            childMarkdownRemark {
-                                excerpt
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        allContentfulLayoutAllPosts(sort: { fields: posts___publishDate, order: DESC }, limit: $limit, skip: $skip) {
+        allContentfulLayoutAllPosts(sort: { fields: posts___publishDate, order: DESC }) {
             edges {
                 node {
                     posts {
@@ -75,7 +53,7 @@ export const query = graphql`
 `;
 
 export default function PostListTemplate({ data, pageContext }) {
-    const { currentPage, numPages } = pageContext;
+    const { currentPage, numPages, limit, skip } = pageContext;
     const title = data.contentfulLayout.title;
     const description = data.contentfulLayout.description;
     const menus = data.contentfulLayout.menu;
@@ -102,7 +80,7 @@ export default function PostListTemplate({ data, pageContext }) {
                     </h2>
                     <hr></hr>
                     <ul style={{ minHeight: 150, marginBottom: "130px" }}>
-                        {data.allContentfulLayoutAllPosts.edges[0].node.posts.map((node) => (
+                        {data.allContentfulLayoutAllPosts.edges[0].node.posts.slice(skip, skip + limit).map((node) => (
                             <Link to={`/post/${node.slug}`}>
                                 <li className="postlist" key={node.slug} style={{ marginBottom: 20 }}>
                                     <h3

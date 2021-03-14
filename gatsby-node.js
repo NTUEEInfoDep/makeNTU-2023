@@ -14,11 +14,13 @@ exports.createPages = ({ graphql, actions }) => {
                     }
                 }
             }
-            allContentfulPost {
+            allContentfulLayoutAllPosts {
                 edges {
                     node {
-                        title
-                        slug
+                        posts {
+                            title
+                            slug
+                        }
                     }
                 }
             }
@@ -40,7 +42,7 @@ exports.createPages = ({ graphql, actions }) => {
                     },
                 });
             } else if (edge.node.slug === "post") {
-                const posts = result.data.allContentfulPost.edges;
+                const posts = result.data.allContentfulLayoutAllPosts.edges[0].node.posts;
                 const postsPerPage = 5;
                 const numPages = Math.ceil(posts.length / postsPerPage);
                 Array.from({ length: numPages }).forEach((_, i) => {
@@ -59,12 +61,12 @@ exports.createPages = ({ graphql, actions }) => {
             }
         });
 
-        result.data.allContentfulPost.edges.forEach((edge) => {
+        result.data.allContentfulLayoutAllPosts.edges[0].node.posts.forEach((post) => {
             createPage({
-                path: `/post/${edge.node.slug}`,
+                path: `/post/${post.slug}`,
                 component: postTemplate,
                 context: {
-                    slug: edge.node.slug,
+                    slug: post.slug,
                     layoutSlug: "post",
                 },
             });
