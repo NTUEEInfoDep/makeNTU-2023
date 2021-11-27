@@ -10,7 +10,6 @@ const Footer = ({ menus }) => {
         id
         addressLine1
         addressLine2
-        contactNumber
         email
         menuLinks
         followUs
@@ -29,7 +28,7 @@ const Footer = ({ menus }) => {
   return (
     <footer className="footer bg-tertiary text-white">
       <div className="container section mx-auto py-10">
-        <div className="footer__content">
+        <div id="contact" className="footer__content">
           <h3 className="text-lg font-bold mb-4 text-lightGray">
             {data.contentfulContactDetails.contactInfo}
           </h3>

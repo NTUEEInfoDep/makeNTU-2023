@@ -8,7 +8,7 @@ import Hero from "sections/hero";
 import Timeline from "sections/timeline";
 import PageNotFound from "sections/pageNotFound";
 import Posts from "sections/posts";
-import Sponsors from "sections/sponsors";
+// import Sponsors from "sections/sponsors";
 import Location from "sections/location";
 // import Pricing from "sections/pricing";
 // import Services from "sections/services";
@@ -18,11 +18,11 @@ import Location from "sections/location";
 const components = {
   About,
   Posts,
-  Prizes,
+  // Prizes,
   Timeline,
-  Location,
-  Sponsors,
-  Contact,
+  // Location,
+  // Sponsors,
+  // Contact,
   PageNotFound,
   Hero,
   // Testimonials,

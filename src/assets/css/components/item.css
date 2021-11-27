@@ -1,15 +1,41 @@
+.item_section {
+  @apply flex flex-col px-4;
+}
+
 .item {
-    @apply flex;
+  @apply w-full py-5 px-0;
 }
 
 .item__icon {
-    @apply text-4xl mr-4;
+  @apply text-4xl mr-4;
 }
 
 .item__title {
-    @apply text-lg mb-2;
+  @apply text-lg mb-2;
 }
 
 .item__text {
-    @apply text-sm w-full;
+  @apply text-sm;
+}
+
+.item__image {
+  max-height: 390px;
+  max-width: 480px;
+  @apply w-full;
+}
+
+@screen md {
+  .item_section {
+    @apply flex flex-row px-4;
+  }
+
+  .item {
+    @apply w-1/2 order-1 py-0 px-4;
+  }
+
+  .item__image {
+    @apply w-1/2 order-2;
+    max-height: 390px;
+    max-width: 480px;
+  }
 }
