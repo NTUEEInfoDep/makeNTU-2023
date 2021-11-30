@@ -132,3 +132,17 @@ h5 {
   display: initial;
   width: 100%;
 }
+
+.contentImage-container {
+  padding-top: 0;
+  padding-bottom: 1rem;
+}
+.contentImage {
+  max-height: 500px;
+  width: 80%;
+  @apply mx-auto;
+}
+
+.contentImage__slider {
+  @apply relative;
+}

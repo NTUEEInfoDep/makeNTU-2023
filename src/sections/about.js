@@ -63,7 +63,7 @@ const About = ({ contentModuleId }) => {
             {/* {content.node.description.childContentfulRichText.html} */}
           </div>
         </div>
-        <div className="about-us__image">
+        {/* <div className="about-us__image">
           <div
             className="mx-auto about-us__image-wrap"
             // data-sal="slide-up"
@@ -72,12 +72,12 @@ const About = ({ contentModuleId }) => {
           >
             <Img fluid={content.node.image.fluid} />
           </div>
-        </div>
+        </div> */}
       </div>
       <div className="container feature_section mx-auto pb-8">
         <div className="about-us__features">
           {content.node.featureItem.length > 0 && (
-            <ul className="mt-10 md:ml-8">
+            <ul className="md:ml-8">
               {content.node.featureItem.map((feature) => (
                 <AboutItem feature={feature} key={feature.id} />
               ))}
