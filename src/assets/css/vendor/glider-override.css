@@ -7,6 +7,10 @@
   }
 }
 
+.glider-dot {
+  outline: none !important;
+  pointer-events: none;
+}
 .glider-dot:hover,
 .glider-dot:focus,
 .glider-dot.active {

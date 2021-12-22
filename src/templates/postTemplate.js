@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Img from "gatsby-image";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -71,47 +71,59 @@ export default function PostTemplate({ data }) {
   const description = data.contentfulLayout.description;
   const files = post.files;
   const contentImages = post.contentImages;
+  const [gliderIndex, setGliderIndex] = useState(0);
 
   const initSlider = () => {
     new Glider(document.querySelector(".glider1"), {
       slidesToShow: 1,
       scrollLock: true,
       duration: 1.2,
-      // dots: ".glider1__dots",
+      dots: ".glider1__dots",
       draggable: true,
-      // arrows: {
-      //   prev: ".glider1-prev",
-      //   next: ".glider1-next",
-      // },
+      arrows: {
+        prev: ".glider1-prev",
+        next: ".glider1-next",
+      },
     });
   };
+
+  let slideTimeout = null;
+  let nextIndexRef = useRef(gliderIndex);
+  nextIndexRef.current = gliderIndex;
+  function sliderAuto(slider, miliseconds) {
+    const slidesCount = slider.track.childElementCount;
+
+    function slide() {
+      slideTimeout = setTimeout(function () {
+        console.log(nextIndexRef.current);
+        if (nextIndexRef.current >= slidesCount) {
+          slider.scrollItem(0);
+          setGliderIndex((index) => {
+            console.log(index);
+            return 0;
+          });
+        } else {
+          slider.scrollItem(nextIndexRef.current + 1);
+          setGliderIndex((index) => {
+            console.log(index);
+            return index + 1;
+          });
+        }
+      }, miliseconds);
+    }
+
+    slider.ele.addEventListener("glider-animated", function () {
+      window.clearInterval(slideTimeout);
+      slide();
+    });
+
+    slide();
+  }
   useEffect(() => {
     if (contentImages) {
       window.onload = function () {
         //console.log("refresh");
         const glider1 = Glider(document.querySelector(".glider1"));
-
-        function sliderAuto(slider, miliseconds) {
-          const slidesCount = slider.track.childElementCount;
-          let slideTimeout = null;
-          let nextIndex = 1;
-
-          function slide() {
-            slideTimeout = setTimeout(function () {
-              if (nextIndex >= slidesCount) {
-                nextIndex = 0;
-              }
-              slider.scrollItem(nextIndex++);
-            }, miliseconds);
-          }
-
-          slider.ele.addEventListener("glider-animated", function () {
-            window.clearInterval(slideTimeout);
-            slide();
-          });
-
-          slide();
-        }
 
         sliderAuto(glider1, 4000);
       };
@@ -122,6 +134,14 @@ export default function PostTemplate({ data }) {
       initSlider();
     }
   });
+
+  const handleClickLeft = () => {
+    setGliderIndex(gliderIndex - 1);
+  };
+
+  const handleClickRight = () => {
+    setGliderIndex(gliderIndex + 1);
+  };
 
   return (
     <Layout menus={null} back={true}>
@@ -166,19 +186,21 @@ export default function PostTemplate({ data }) {
                       );
                     })}
                   </div>
-                  {/* <div style={{ width: "80%", transform: "translateX(12%)" }}>
+                  <div style={{ width: "80%", transform: "translateX(12%)" }}>
                     <button
                       className="glider1-prev material-icons"
                       style={{
                         position: "absolute",
                         left: "0px",
                       }}
+                      onClick={handleClickLeft}
                     >
                       keyboard_arrow_left
                     </button>
                     <button
                       className="glider1-next material-icons"
                       style={{ position: "absolute", right: "0px" }}
+                      onClick={handleClickRight}
                     >
                       keyboard_arrow_right
                     </button>
@@ -186,7 +208,7 @@ export default function PostTemplate({ data }) {
                   <div
                     className="glider1__dots"
                     style={{ marginBottom: "30px" }}
-                  ></div> */}
+                  ></div>
                 </div>
               </div>
             </div>
