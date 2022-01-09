@@ -21,6 +21,11 @@ const Location = ({ contentModuleId }) => {
               allowfullscreen
               tableindex
             }
+            image {
+              fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
+                ...GatsbyContentfulFluid_tracedSVG
+              }
+            }
           }
         }
       }
@@ -47,7 +52,7 @@ const Location = ({ contentModuleId }) => {
             <Map feature={content.node.location} />
           </div>
           <div className="location__image mx-auto">
-            <Img fluid={content.node.image} />
+            <Img fluid={content.node.image.fluid} />
           </div>
         </div>
       </div>
