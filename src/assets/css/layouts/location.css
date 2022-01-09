@@ -21,3 +21,9 @@ iframe {
 .location__description {
   @apply font-bold text-xl mb-4;
 }
+
+.location__image {
+  max-height: 390px;
+  max-width: 480px;
+  @apply w-full;
+}

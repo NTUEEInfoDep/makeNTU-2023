@@ -20,7 +20,7 @@ const components = {
   Posts,
   // Prizes,
   Timeline,
-  // Location,
+  Location,
   // Sponsors,
   // Contact,
   PageNotFound,
