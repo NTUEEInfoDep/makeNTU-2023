@@ -4,7 +4,7 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: `2021 makeNTU: Cabin Fever`,
+    title: `2022 makeNTU: sustAInable develOpmenT`,
     description: `A One-page Gatsby for makeNTU2021`,
     author: `NTUEEInfoDep`,
   },
@@ -52,7 +52,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `2021 makeNTU: Cabin Fever`,
+        name: `2022 makeNTU: sustAInable develOpmenT`,
         short_name: `makeNTU`,
         start_url: `/`,
         background_color: `#6C63FF`,
