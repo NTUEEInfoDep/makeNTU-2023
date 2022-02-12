@@ -5,8 +5,9 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: `2022 makeNTU: sustAInable develOpmenT`,
-    description: `A One-page Gatsby for makeNTU2021`,
+    description: `makeNTU2022 websit1`,
     author: `NTUEEInfoDep`,
+    siteUrl: process.env.SITE_URL,
   },
   plugins: [
     `gatsby-plugin-netlify-cache`,

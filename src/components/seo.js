@@ -5,12 +5,13 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Helmet } from 'react-helmet';
-import { useStaticQuery, graphql } from 'gatsby';
+import React from "react";
+import PropTypes from "prop-types";
+import { Helmet } from "react-helmet";
+import { useStaticQuery, graphql } from "gatsby";
+import defaultOpenGraphImage from "../assets/images/makeNTU2022.png";
 
-function SEO({ description, lang, meta, title }) {
+function SEO({ description, lang, meta, title, img }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -19,13 +20,15 @@ function SEO({ description, lang, meta, title }) {
             title
             description
             author
+            siteUrl
           }
         }
       }
     `
-  )
+  );
 
-  const metaDescription = description || site.siteMetadata.description
+  const metaDescription = description || site.siteMetadata.description;
+  const ogImageUrl = site.siteMetadata.siteUrl + (img || defaultOpenGraphImage);
 
   return (
     <Helmet
@@ -48,6 +51,16 @@ function SEO({ description, lang, meta, title }) {
           content: metaDescription,
         },
         {
+          property: `og:image`,
+          // content: `https://static.xx.fbcdn.net/rsrc.php/v3/yb/r/-Hn0KbzDJps.png`,
+          content: ogImageUrl,
+        },
+        {
+          property: `og:url`,
+          content: `https://make.ntuee.org`,
+          //content: ogImageUrl,
+        },
+        {
           property: `og:type`,
           content: `website`,
         },
@@ -67,9 +80,17 @@ function SEO({ description, lang, meta, title }) {
           name: `twitter:description`,
           content: metaDescription,
         },
+        {
+          property: `twitter:image`,
+          content: ogImageUrl,
+        },
+        {
+          property: `image`,
+          content: ogImageUrl,
+        },
       ].concat(meta)}
     />
-  )
+  );
 }
 
 SEO.defaultProps = {

@@ -18,9 +18,7 @@ export const query = graphql`
     contentfulPost(slug: { eq: $slug }) {
       title
       description {
-        childMarkdownRemark {
-          html
-        }
+        description
       }
       publishDate(formatString: "MMMM Do, YYYY")
       heroImage {
@@ -67,8 +65,8 @@ export const query = graphql`
 
 export default function PostTemplate({ data }) {
   const post = data.contentfulPost;
-  const title = data.contentfulLayout.title;
-  const description = data.contentfulLayout.description;
+  const title = post.title;
+  const description = post.description.description;
   const files = post.files;
   const contentImages = post.contentImages;
   const [gliderIndex, setGliderIndex] = useState(0);
