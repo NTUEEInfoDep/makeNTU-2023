@@ -20,6 +20,7 @@ export const query = graphql`
       description {
         description
       }
+      slug
       publishDate(formatString: "MMMM Do, YYYY")
       heroImage {
         fluid(maxWidth: 1180, background: "rgb:000000") {
@@ -143,7 +144,11 @@ export default function PostTemplate({ data }) {
 
   return (
     <Layout menus={null} back={true}>
-      <SEO title={title} description={description} />
+      <SEO
+        title={title}
+        description={description}
+        url={process.env.SITE_URL + `post/` + post.slug}
+      />
       <div>
         <div
           className="heroImage-container container section mx-auto"

@@ -39,7 +39,7 @@ export default function PageTemplate({ data }) {
 
   return (
     <Layout menus={menus}>
-      <SEO title={title} description={description} />
+      <SEO title={title} description={description} url={process.env.SITE_URL} />
       {contentModule &&
         contentModule.length > 0 &&
         contentModule.map((content) => (

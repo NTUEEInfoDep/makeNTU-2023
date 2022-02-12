@@ -11,7 +11,7 @@ import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 import defaultOpenGraphImage from "../assets/images/makeNTU2022.png";
 
-function SEO({ description, lang, meta, title, img }) {
+function SEO({ description, lang, meta, title, img, url }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -29,6 +29,7 @@ function SEO({ description, lang, meta, title, img }) {
 
   const metaDescription = description || site.siteMetadata.description;
   const ogImageUrl = site.siteMetadata.siteUrl + (img || defaultOpenGraphImage);
+  const ogUrl = url || process.env.SITE_URL;
 
   return (
     <Helmet
@@ -57,7 +58,7 @@ function SEO({ description, lang, meta, title, img }) {
         },
         {
           property: `og:url`,
-          content: `https://make.ntuee.org`,
+          content: ogUrl,
           //content: ogImageUrl,
         },
         {
