@@ -23,7 +23,8 @@ iframe {
 }
 
 .location__image {
-  max-height: 1013px;
+  /* max-height: 1013px; */
   max-width: 771px;
   @apply w-full;
+  margin-bottom: 40px;
 }

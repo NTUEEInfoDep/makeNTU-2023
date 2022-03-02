@@ -21,8 +21,8 @@ const Location = ({ contentModuleId }) => {
               allowfullscreen
               tableindex
             }
-            image {
-              fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
+            images {
+              fluid(maxWidth: 1180, background: "rgb:000000") {
                 ...GatsbyContentfulFluid_tracedSVG
               }
             }
@@ -51,9 +51,12 @@ const Location = ({ contentModuleId }) => {
           <div className="iframe-rwd mx-auto">
             <Map feature={content.node.location} />
           </div>
-          <div className="location__image mx-auto">
-            <Img fluid={content.node.image.fluid} />
-          </div>
+
+          {content.node.images.map((image) => (
+            <div className="location__image mx-auto">
+              <Img fluid={image.fluid} />
+            </div>
+          ))}
         </div>
       </div>
     </section>
