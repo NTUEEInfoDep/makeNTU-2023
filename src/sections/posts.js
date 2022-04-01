@@ -68,7 +68,7 @@ const Posts = ({ contentModuleId }) => {
               if (post.tags.includes("important")) {
                 return (
                   <Link
-                    className="hover-red uppercase"
+                    className="hover-red"
                     to={`/post/${post.slug}`}
                   >
                     <li className="mb-16" key={post.slug} id={post.slug}>
@@ -78,7 +78,7 @@ const Posts = ({ contentModuleId }) => {
                 );
               }
               return (
-                <Link className="hover uppercase" to={`/post/${post.slug}`}>
+                <Link className="hover" to={`/post/${post.slug}`}>
                   <li className="mb-8" key={post.slug} id={post.slug}>
                     <PostPreview post={post} key={post.id} />
                   </li>
