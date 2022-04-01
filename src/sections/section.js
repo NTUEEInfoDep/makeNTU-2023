@@ -18,7 +18,7 @@ import Location from "sections/location";
 const components = {
   About,
   Posts,
-  // Prizes,
+  Prizes,
   Timeline,
   Location,
   // Sponsors,

@@ -61,9 +61,13 @@ const CompanyPrize = ({ prize }) => (
           </tbody>
         </table>
       </div>
-      <a href={prize.link}>
-        <button className="btn btn--primary mt-4 mb-0">完整內容</button>
-      </a>
+      {prize.link ? (
+        <a href={prize.link}>
+          <button className="btn btn--primary mt-4 mb-0">完整內容</button>
+        </a>
+      ) : (
+        <></>
+      )}
     </div>
   </div>
 );
