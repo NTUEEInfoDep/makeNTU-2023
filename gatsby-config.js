@@ -10,7 +10,7 @@ module.exports = {
     siteUrl: process.env.SITE_URL,
   },
   plugins: [
-    `gatsby-plugin-netlify-cache`,
+    `gatsby-plugin-netlify`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
