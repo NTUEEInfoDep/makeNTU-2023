@@ -53,7 +53,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `2022 makeNTU: sustAInable develOpmenT`,
+        name: `2023 makeNTU: sustAInable develOpmenT`,
         short_name: `makeNTU`,
         start_url: `/`,
         background_color: `#6C63FF`,
