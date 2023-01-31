@@ -7031,15 +7031,6 @@
     "jsonfile" "^4.0.0"
     "universalify" "^0.1.0"
 
-"fs-extra@^7.0.0":
-  "integrity" "sha512-YJDaCJZEnBmcbw13fvdAM9AwNOJwOzrE4pqMqBq5nFiEqXUqHwlK4B+3pUw6JNvfSPtX05xFHtYy/1ni01eGCw=="
-  "resolved" "https://registry.npmjs.org/fs-extra/-/fs-extra-7.0.1.tgz"
-  "version" "7.0.1"
-  dependencies:
-    "graceful-fs" "^4.1.2"
-    "jsonfile" "^4.0.0"
-    "universalify" "^0.1.0"
-
 "fs-extra@^8.0.0", "fs-extra@^8.1.0":
   "integrity" "sha512-yhlQgA6mnOJUKOsRUFsgJdQCvkKhcz8tlZG5HBQfReYZy46OwLcY+Zia0mtdHsOo9y/hP+CxMN0TU9QxoOtG4g=="
   "resolved" "https://registry.npmjs.org/fs-extra/-/fs-extra-8.1.0.tgz"
@@ -7234,14 +7225,6 @@
     "gatsby-plugin-utils" "^0.9.0"
     "semver" "^7.3.2"
     "sharp" "^0.27.0"
-
-"gatsby-plugin-netlify-cache@^1.2.0":
-  "integrity" "sha512-unt4mAVpC0JzwZSo8KQV4P/trDHkr3PeTWDF5Hijw9jGfNQIWXbcj9nYljAVg7HCich6E6b27Q+zuf53InwpDQ=="
-  "resolved" "https://registry.npmjs.org/gatsby-plugin-netlify-cache/-/gatsby-plugin-netlify-cache-1.2.0.tgz"
-  "version" "1.2.0"
-  dependencies:
-    "babel-runtime" "^6.26.0"
-    "fs-extra" "^7.0.0"
 
 "gatsby-plugin-offline@^3.2.21":
   "integrity" "sha512-+Rsyw/N5MhpkuMc7G5BlD27KnhcuzBOrBw/bjSjE+VsnrKP4byQjGVB2bwH326Sdt3Ci15lMY1sQAi0IMEo9/w=="
