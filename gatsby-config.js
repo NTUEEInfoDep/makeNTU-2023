@@ -4,8 +4,8 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: `2022 makeNTU: sustAInable develOpmenT`,
-    description: `makeNTU2022 websit1`,
+    title: `2023 makeNTU: EUREKA`,
+    description: `makeNTU2023 websit1`,
     author: `NTUEEInfoDep`,
     siteUrl: process.env.SITE_URL,
   },
