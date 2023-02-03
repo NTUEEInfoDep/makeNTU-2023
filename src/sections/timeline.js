@@ -169,23 +169,32 @@ export default ({ contentModuleId }) => {
         <h2 className="text-center section__title mb-16">
           {timelineData.heading}
         </h2>
-        {/*<div className={classes.root}>
-                    <ThemeProvider theme={theme}>
-                        <Grid container direction="row" justify="center" alignItems="flex-start" spacing={9}>
-                            {timelineData.data.length ? (
-                                timelineData.data.map((day) => {
-                                    return (
-                                        <Grid item>
-                                            <TimelineCard title={day.date || ""} events={day.events} />
-                                        </Grid>
-                                    );
-                                })
-                            ) : (
-                                <Grid item>error</Grid>
-                            )}
-                        </Grid>
-                    </ThemeProvider>
-                            </div>*/}
+        <div className={classes.root}>
+          <ThemeProvider theme={theme}>
+            <Grid
+              container
+              direction="row"
+              justify="center"
+              alignItems="flex-start"
+              spacing={9}
+            >
+              {timelineData.data.length ? (
+                timelineData.data.map((day) => {
+                  return (
+                    <Grid item>
+                      <TimelineCard
+                        title={day.date || ""}
+                        events={day.events}
+                      />
+                    </Grid>
+                  );
+                })
+              ) : (
+                <Grid item>error</Grid>
+              )}
+            </Grid>
+          </ThemeProvider>
+        </div>
       </div>
     </section>
   );
