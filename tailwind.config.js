@@ -12,8 +12,8 @@ module.exports = {
   },
   theme: {
     fontFamily: {
-      body: ["ailerons", "sans-serif"],
-      display: ["ailerons", "sans-serif"],
+      body: ["Roboto", "sans-serif"],
+      display: ["Rubik", "sans-serif"],
     },
     extend: {
       colors: {

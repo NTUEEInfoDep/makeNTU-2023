@@ -28,6 +28,14 @@
   @apply text-2xl;
 }
 
+.hero__tagline-pretitle-image {
+  background-image: url("../images/makeNTU2023Title.png");
+  @apply w-full h-40;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
 .hero__tagline-subtitle {
   @apply italic;
   color: #cc0049;
