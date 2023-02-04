@@ -40,8 +40,9 @@ const Hero = ({ contentModuleId }) => {
               <h2 className="hero__tagline-title" data-sal="fade">
                 <span className="hero__tagline-pretitle">2023 MakeNTU</span>
                 <br />
-                <span style={{ fontSize: "7rem" }}>EUREKA</span>
+                {/*<span className="hero__tagline-pretitle-image"></span>*/}
               </h2>
+              <div className="hero__tagline-pretitle-image"></div>
               {content.node.subheading.split(" ").map((line) => {
                 return (
                   <p

@@ -62,7 +62,7 @@ const Posts = ({ contentModuleId }) => {
         <h2 className="section__title text-center mb-12">
           {content.node.heading}{" "}
         </h2>
-        {/*<ul className="post-list mb-10">
+        <ul className="post-list mb-10">
           {content.node.posts &&
             content.node.posts.map((post) => {
               if (post.tags.includes("important")) {
@@ -89,7 +89,7 @@ const Posts = ({ contentModuleId }) => {
               <span>View More</span>
             </button>
           </Link>
-          </div>*/}
+        </div>
       </div>
     </section>
   );
