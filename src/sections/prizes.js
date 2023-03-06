@@ -87,16 +87,16 @@ const Prizes = ({ contentModuleId }) => {
     });
   };
   useEffect(() => {
-    /*window.onload = function () {
+    window.onload = function () {
       //console.log("refresh");
       const glider1 = Glider(document.querySelector(".glider1"));
       const glider2 = Glider(document.querySelector(".glider2"));
       glider1.refresh();
       glider2.refresh();
-    };*/
+    };
   }, []);
   useEffect(() => {
-    //initSlider();
+    initSlider();
   });
 
   return (
@@ -119,7 +119,7 @@ const Prizes = ({ contentModuleId }) => {
           >
             大會獎
           </h2>
-          {/*<div className="w-full md:pt-0">
+          <div className="w-full md:pt-0">
             {content.length > 0 && (
               <div className="prize__slider">
                 <div className="glider1" id="glider1">
@@ -150,7 +150,7 @@ const Prizes = ({ contentModuleId }) => {
                 ></div>
               </div>
             )}
-                  </div>*/}
+          </div>
         </div>
         <div className="w-full md:w-2/5 pl-0 text-center md:text-left">
           <h2
@@ -159,7 +159,7 @@ const Prizes = ({ contentModuleId }) => {
           >
             企業獎
           </h2>
-          {/*<div className="w-full md:pt-0">
+          <div className="w-full md:pt-0">
             {content2.length > 0 && (
               <div className="prize__slider">
                 <div className="glider2">
@@ -198,7 +198,7 @@ const Prizes = ({ contentModuleId }) => {
                 ></div>
               </div>
             )}
-                  </div>*/}
+          </div>
         </div>
       </div>
     </section>
